@@ -10,7 +10,6 @@ const CharacterSheet = ({ game }) => {
 		...baseSheet,
 		...sheet
 	]
-	// const { } = baseSheetData
 
 	return (
 		<div>
