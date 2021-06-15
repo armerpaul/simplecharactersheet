@@ -35,6 +35,7 @@ const StatName = styled.div`
 const StatNumber = styled.span`
 	font-size: 2rem;
 	line-height: ${CIRCLE_SIZE};
+	flex: 1 1 100%;
 `
 const StatButton = styled.button`
 	background: transparent;
@@ -42,13 +43,14 @@ const StatButton = styled.button`
 	outline: none;
 	border: none;
 	opacity: 0.5;
+	flex: 0 1 50%;
 
 	&:hover {
 		background: rgba(0, 0, 0, 0.2);
 	}
 `
 
-const StatsBlock = ({ names, range }) => {
+const StatsBlock = ({ names, range, isEditing }) => {
 	const [stats, setStats] = React.useState({})
 	const [min, max] = range || [-Infinity, Infinity]
 
@@ -65,19 +67,23 @@ const StatsBlock = ({ names, range }) => {
 				<Stat key={stat}>
 					<StatName>{stat}</StatName>
 					<StatCircle>
-						<StatButton
-							disabled={stats[stat] <= min}
-							onClick={() => change(stat, -1)}
-						>
-							-
-						</StatButton>
+						{isEditing && (
+							<StatButton
+								disabled={stats[stat] <= min}
+								onClick={() => change(stat, -1)}
+							>
+								-
+							</StatButton>
+						)}
 						<StatNumber>{stats[stat] || 0}</StatNumber>
-						<StatButton
-							disabled={stats[stat] >= max}
-							onClick={() => change(stat, 1)}
-						>
-							+
-						</StatButton>
+						{isEditing && (
+							<StatButton
+								disabled={stats[stat] >= max}
+								onClick={() => change(stat, 1)}
+							>
+								+
+							</StatButton>
+						)}
 					</StatCircle>
 				</Stat>
 			))}
