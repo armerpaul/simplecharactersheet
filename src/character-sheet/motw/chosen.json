@@ -121,10 +121,10 @@
 					"type": "list",
 					"pick": 1,
 					"items": [
-						"staff (1-harm hand/close)",
-						"haft (2-harm hand heavy)",
-						"handle (1-harm hand balanced)",
-						"chain (1-harm hand area)"
+						"staff (1-harm, hand/close)",
+						"haft (2-harm, hand, heavy)",
+						"handle (1-harm, hand, balanced)",
+						"chain (1-harm, hand, area)"
 					]
 				},
 				{
@@ -132,13 +132,13 @@
 					"type": "list",
 					"pick": 3,
 					"items": [
-						"artifact (add the `magic` tag)",
-						"spikes (+1 harm, add the `messy` tag)",
+						"artifact (add the 'magic' tag)",
+						"spikes (+1 harm, add the 'messy' tag)",
 						"blade (+1 harm)",
 						"heavy (+1 harm)",
-						"long (add the `close` tag)",
-						"throwable (add the `close` tag)",
-						"chain (add the `area` tag)"
+						"long (add the 'close' tag)",
+						"throwable (add the 'close' tag)",
+						"chain (add the 'area' tag)"
 					]
 				},
 				{
