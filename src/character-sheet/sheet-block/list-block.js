@@ -22,52 +22,45 @@ const ListBlock = ({
 	isEditing
 }) => {
 	const [checklist, setChecklist] = React.useState({})
-	const [lastChecked, setLastChecked] = React.useState('other')
 	const [otherValue, setOtherValue] = React.useState('')
 
 	const showOther = other && (isEditing || checklist['other'])
+	const checkCount = Object.keys(checklist).reduce(
+		(count, key) => count + (checklist[key] ? 1 : 0),
+		0
+	)
 
 	const toggleCheck = index => {
 		if (!isEditing) {
 			return
 		}
-		const totalChecked = Object.keys(checklist).reduce(
-				(count, key) => count + (checklist[key] ? 1 : 0),
-				0
-			)
 
-		let lastCheckedValue = checklist[lastChecked]
 		const newValue = !checklist[index]
-
-		// if adding a check
-		if (newValue && totalChecked >= pick) {
-			lastCheckedValue = false
-		}
-
-		const newChecklist = {
+		setChecklist({
 			...checklist,
-			[lastChecked]: lastCheckedValue,
 			[index]: newValue,
-		}
-		console.log({ totalChecked, newChecklist })
-		setChecklist(newChecklist)
-		setLastChecked(index)
+		})
 	}
 
 	return [
+		isEditing && pick && (
+			<span>Pick {pick} {checkCount > pick && '⚠️'}</span>
+		),
 		...items.map((item, index) => {
 			const key = `${name} ${index}`
 			return (isEditing || checklist[index]) && (
 				<ListItem
 					key={key}
 				>
-					<input
-						id={key}
-						name={key}
-						checked={checklist[index]}
-						type="checkbox"
-						onClick={() => toggleCheck(index)}
-					/>
+					{isEditing && (
+						<input
+							id={key}
+							name={key}
+							checked={checklist[index]}
+							type="checkbox"
+							onClick={() => toggleCheck(index)}
+						/>
+					)}
 					<Label htmlFor={key}>
 						<ReactMarkdown children={item} />
 					</Label>
