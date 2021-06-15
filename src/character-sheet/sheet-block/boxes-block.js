@@ -2,15 +2,17 @@ import React from 'react'
 
 const BoxesBlock = ({ name, count, labels }) => {
 	const [leftLabel, rightLabel] = labels || []
+	const indexedArray = Array.from(Array(count), (_, i) => i)
+
 	return [
-		<span label="left">{leftLabel}</span>,
-		...Array.from(Array(count), (_, i) => i).map(item => {
+		<span key={`${name} left`}>{leftLabel}</span>,
+		...indexedArray.map(item => {
 			const key = `${name} ${item}`
 			return (
 				<input key={key} name={key} type="checkbox" />
 			)
 		}),
-		<span label="right">{rightLabel}</span>
+		<span key={`${name} right`}>{rightLabel}</span>
 	]
 }
 

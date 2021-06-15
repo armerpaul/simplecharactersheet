@@ -16,7 +16,7 @@ const ListBlock = ({ name, pick, items }) => {
 	return items.map((item, index) => {
 		const key = `${name} ${index}`
 		return (
-			<Label key={key} for={key}>
+			<Label key={key} htmlFor={key}>
 				<input id={key} name={key} type="checkbox" />
 				<ReactMarkdown children={item} />
 			</Label>

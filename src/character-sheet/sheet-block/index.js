@@ -14,11 +14,7 @@ const SheetBlock = ({
 	...otherArgs
 }) => {
 	const header = !hideName && (
-		level > 0 ? (
-			<ReactMarkdown children={`### ${name}`} />
-		) : (
-			<ReactMarkdown children={`## ${name}`} />
-		)
+		<ReactMarkdown key="header" children={level > 0 ? `### ${name}` : `## ${name}`} />
 	)
 
 	let contents
@@ -34,19 +30,22 @@ const SheetBlock = ({
 			break
 		case 'parent':
 			const { children } = otherArgs
-			contents = children.map(child => <SheetBlock
-				{...child}
-				level={level ? level + 1 : 1}
-			/>)
+			contents = children.map((child, index) => (
+				<SheetBlock
+					key={`${name} block ${index}`}
+					{...child}
+					level={level ? level + 1 : 1}
+				/>
+			))
 			break
 		default:
 			break
 	}
 
 	return (
-		<div key="name">
+		<div key={name}>
 			{header}
-			<ReactMarkdown children={description} />
+			<ReactMarkdown key="description" children={description} />
 			{contents}
 		</div>
 	)

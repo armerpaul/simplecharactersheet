@@ -62,7 +62,7 @@ const StatsBlock = ({ names, range }) => {
 	return (
 		<StatsContainer>
 			{names.map(stat => (
-				<Stat>
+				<Stat key={stat}>
 					<StatName>{stat}</StatName>
 					<StatCircle>
 						<StatButton

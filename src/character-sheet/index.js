@@ -15,7 +15,9 @@ const CharacterSheet = ({ game }) => {
 		<div>
 			<h1>{name}</h1>
 			<p>{description}</p>
-			{sheetBlocks.map(block => <SheetBlock {...block} />)}
+			{sheetBlocks.map((block, index) => (
+				<SheetBlock key={`block-${index}`} {...block} />
+			))}
 		</div>
 	)
 }
