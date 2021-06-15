@@ -1,0 +1,60 @@
+[
+	{
+		"name": "Stats",
+		"hideName": true,
+		"type": "stats",
+		"names": [
+			"Charm",
+			"Cool",
+			"Sharp",
+			"Tough",
+			"Weird"
+		],
+		"range": [
+			-3,
+			3
+		]
+	},
+	{
+		"name": "Luck",
+		"description": "Mark luck to change a roll to 12 or avoid all harm from an injury.",
+		"type": "boxes",
+		"count": 7,
+		"labels": [
+			"Okay",
+			"Doomed"
+		]
+	},
+	{
+		"name": "Harm",
+		"description": "When you reach 4 or more, mark unstable.",
+		"type": "parent",
+		"children": [
+			{
+				"name": "Harm Boxes",
+				"hideName": true,
+				"type": "boxes",
+				"count": 7,
+				"labels": [
+					"Okay",
+					"Dying"
+				]
+			},
+			{
+				"name": "Unstable",
+				"hideName": true,
+				"type": "boxes",
+				"count": 1,
+				"labels": [
+					"Unstable:"
+				]
+			}
+		]
+	},
+	{
+		"name": "Experience",
+		"description": "Whenever you roll and get a total of 6 or less, or when a move tells you to, mark an experience box.",
+		"type": "boxes",
+		"count": 5
+	}
+]

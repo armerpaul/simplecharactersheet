@@ -1,12 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
+
+import AppHeader from './app-header'
+import AppHome from './app-home'
+import GameHome from './game-home'
+import CharacterSheet from './character-sheet'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <AppHeader />
+      <Switch>
+        <Route path="/" exact>
+          <AppHome />
+        </Route>
+        <Route path="/:game" exact>
+          <GameHome />
+        </Route>
+        <Route path="/:game/character">
+          <CharacterSheet />
+        </Route>
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
