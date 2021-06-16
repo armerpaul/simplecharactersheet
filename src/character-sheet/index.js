@@ -2,25 +2,70 @@ import React from 'react'
 import styled from 'styled-components'
 import SheetBlock from './sheet-block'
 import Stats from './stats'
-
-import gameData from './motw/base.json'
-import sheetData from './motw/chosen.json'
+import getCharacterData from './get-character-data'
+import { useParams } from 'react-router-dom'
 
 const SheetContainer = styled.div`
 	max-width: 50rem;
 	margin-left: auto;
 	margin-right: auto;
 `
+const LoadingContainer = styled(SheetContainer)`
+	@keyframes pulse {
+		from { opacity: 0.5 }
+		to { opacity: 1 }
+	}
 
-const CharacterSheet = ({ game }) => {
-	const [isEditing, setIsEditing] = React.useState(false)
+  animation-duration: 0.5s;
+  animation-name: pulse;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 
-	const { name, description, sheet } = sheetData
-	const { stats } = gameData
+	text-align: center;
+	padding: 20vh;
+	font-size: 2rem;
+`
+const ErrorContainer = styled(SheetContainer)`
+	color: red;
+`
+
+const CharacterSheet = () => {
+	let { gameId, characterId } = useParams()
+
+	const [isEditing, setIsEditing] = React.useState(true)
+	const [character, setCharacter] = React.useState()
+	const [game, setGame] = React.useState()
+	const [sheet, setSheet] = React.useState()
+
+	React.useEffect(
+		() => {
+			const data = getCharacterData({ characterId, gameId })
+			setCharacter(data.character)
+			setGame(data.game)
+			setSheet(data.sheet)
+		},
+		[characterId, gameId]
+	)
+
+	if (!game || !sheet) {
+		return (
+			<LoadingContainer>
+				Loading...
+			</LoadingContainer>
+		)
+	}
+
+	if (!character) {
+		return (
+			<ErrorContainer>
+				Error loading character
+			</ErrorContainer>
+		)
+	}
 
 	return (
 		<SheetContainer>
-			<h1>{name}</h1>
+			<h1>{sheet.name}</h1>
 			<label
 				htmlFor="isEditing"
 			>
@@ -32,11 +77,11 @@ const CharacterSheet = ({ game }) => {
 					checked={isEditing}
 				/>
 			</label>
-			<p>{description}</p>
+			<p>{sheet.description}</p>
 
-			<Stats {...stats} isEditing={isEditing} />
+			<Stats {...game.stats} isEditing={isEditing} />
 
-			{sheet.map((block, index) => (
+			{sheet.blocks.map((block, index) => (
 				<SheetBlock
 					{...block}
 					key={`block-${index}`}

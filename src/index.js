@@ -19,15 +19,9 @@ ReactDOM.render(
     <Router>
       <AppHeader />
       <Switch>
-        <Route path="/" exact>
-          <AppHome />
-        </Route>
-        <Route path="/:game" exact>
-          <GameHome />
-        </Route>
-        <Route path="/:game/character">
-          <CharacterSheet />
-        </Route>
+        <Route path="/" exact component={AppHome} />
+        <Route path="/:gameId" exact component={GameHome} />
+        <Route path="/:gameId/:characterId" exact component={CharacterSheet} />
       </Switch>
     </Router>
   </React.StrictMode>,
