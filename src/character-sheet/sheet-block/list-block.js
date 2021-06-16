@@ -44,7 +44,7 @@ const ListBlock = ({
 
 	return [
 		isEditing && pick && (
-			<span>Pick {pick} {checkCount > pick && '⚠️'}</span>
+			<span key="pick">Pick {pick} {checkCount > pick && '⚠️'}</span>
 		),
 		...items.map((item, index) => {
 			const key = `${name} ${index}`
@@ -71,26 +71,27 @@ const ListBlock = ({
 			<ListItem
 				key={`${name} other`}
 			>
-				<input
-					id={`${name} other`}
-					name={`${name} other`}
-					checked={checklist['other']}
-					type="checkbox"
-					onClick={() => toggleCheck('other')}
-				/>
-
-					{isEditing ? (
+				{isEditing ? (
+					<>
+						<input
+							id={`${name} other`}
+							name={`${name} other`}
+							checked={checklist['other']}
+							type="checkbox"
+							onClick={() => toggleCheck('other')}
+						/>
 						<input
 							type="text"
 							onChange={event => {
 								setOtherValue(event.target.value)
 							}}
 						/>
-					) : (
-						<Label htmlFor={`${name} other`}>
-							<ReactMarkdown children={otherValue} />
-						</Label>
-					)}
+					</>
+				) : (
+					<Label htmlFor={`${name} other`}>
+						<ReactMarkdown children={otherValue} />
+					</Label>
+				)}
 			</ListItem>
 		)
 	]

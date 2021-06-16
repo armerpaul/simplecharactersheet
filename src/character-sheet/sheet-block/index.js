@@ -3,19 +3,24 @@ import ReactMarkdown from 'react-markdown'
 
 import BoxesBlock from './boxes-block'
 import ListBlock from './list-block'
-import StatsBlock from './stats-block'
 
 const BlockTypes = {
 	boxes: BoxesBlock,
 	list: ListBlock,
-	stats: StatsBlock,
+}
+
+const headerForLevel = {
+	0: '##',
+	1: '###',
+	2: '####',
 }
 
 const SheetBlock = ({
 	hideName,
 	type,
 	description,
-	level,
+	editDescription,
+	level = 0,
 	...otherArgs
 }) => {
 	const { name, isEditing } = otherArgs
@@ -43,8 +48,11 @@ const SheetBlock = ({
 			{name && !hideName && (
 				<ReactMarkdown
 					key="header"
-					children={level > 0 ? `### ${name}` : `## ${name}`}
+					children={`${headerForLevel[level]} ${name}`}
 				/>
+			)}
+			{editDescription && isEditing && (
+				<ReactMarkdown key="editDescription" children={editDescription} />
 			)}
 			{description && (
 				<ReactMarkdown key="description" children={description} />

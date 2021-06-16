@@ -4,10 +4,9 @@ import styled from 'styled-components'
 const StatsContainer = styled.div`
 	display: flex;
 	align-items: center;
-
 `
 
-const CIRCLE_SIZE = '3.5rem'
+const CIRCLE_SIZE = '4rem'
 
 const Stat = styled.div`
 	text-align: center;
@@ -39,25 +38,28 @@ const StatNumber = styled.span`
 `
 const StatButton = styled.button`
 	background: transparent;
-	cursor: pointer;
 	outline: none;
 	border: none;
 	opacity: 0.5;
 	flex: 0 1 50%;
 
-	&:hover {
-		background: rgba(0, 0, 0, 0.2);
+	&:not(:disabled) {
+		cursor: pointer;
+
+		&:hover {
+			background: rgba(0, 0, 0, 0.2);
+		}
 	}
 `
 
-const StatsBlock = ({ names, range, isEditing }) => {
+const Stats = ({ names, range, defaultValue, isEditing }) => {
 	const [stats, setStats] = React.useState({})
-	const [min, max] = range || [-Infinity, Infinity]
+	const { min, max } = range || { min: -Infinity, max: Infinity }
 
 	const change = (stat, delta) => {
 		setStats({
 			...stats,
-			[stat]: (stats[stat] || 0) + delta
+			[stat]: (stats[stat] || defaultValue) + delta
 		})
 	}
 
@@ -75,7 +77,7 @@ const StatsBlock = ({ names, range, isEditing }) => {
 								-
 							</StatButton>
 						)}
-						<StatNumber>{stats[stat] || 0}</StatNumber>
+						<StatNumber>{stats[stat] || defaultValue}</StatNumber>
 						{isEditing && (
 							<StatButton
 								disabled={stats[stat] >= max}
@@ -91,4 +93,4 @@ const StatsBlock = ({ names, range, isEditing }) => {
 	)
 }
 
-export default StatsBlock
+export default Stats
