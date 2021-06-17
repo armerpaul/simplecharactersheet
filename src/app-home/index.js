@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'
-import CreateCharacter from './create-character'
 
 const StyledAppHome = styled.div`
 
@@ -16,8 +15,8 @@ const AppHome = () => {
 	return (
 		<StyledAppHome>
 			<GameList>
-				<CreateCharacter game="motw" name="Monster of the Week" />
-				<CreateCharacter game="bitd" name="Blades in the Dark" />
+				{/* <CreateCharacter game="motw" name="Monster of the Week" />
+				<CreateCharacter game="bitd" name="Blades in the Dark" /> */}
 			</GameList>
 			<MyCharacters>
 			</MyCharacters>

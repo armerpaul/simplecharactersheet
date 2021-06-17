@@ -13,6 +13,7 @@ const headerForLevel = {
 	0: '##',
 	1: '###',
 	2: '####',
+	3: '#####',
 }
 
 const SheetBlock = ({
@@ -20,26 +21,30 @@ const SheetBlock = ({
 	type,
 	description,
 	editDescription,
-	level = 0,
+	parents = [],
 	...otherArgs
 }) => {
-	const { name, isEditing } = otherArgs
+	// pulled out separately so otherArgs contains all the good stuff
+	const { name, value, isEditing, updateCharacter } = otherArgs
+	const path = [...parents, name]
 
 	let contents
 	if ('parent' === type) {
 		const { children } = otherArgs
-		contents = children.map((child, index) => (
+		contents = children.map(child => (
 			<SheetBlock
 				{...child}
+				key={`${name} ${child.name}`}
+				value={value && value[child.name]}
+				updateCharacter={updateCharacter}
 				isEditing={isEditing}
-				key={`${name} block ${index}`}
-				level={level ? level + 1 : 1}
+				parents={path}
 			/>
 		))
 	} else {
 		const BlockType = BlockTypes[type]
 		contents = BlockType && (
-			<BlockType {...otherArgs} />
+			<BlockType path={path} {...otherArgs} />
 		)
 	}
 
@@ -48,7 +53,7 @@ const SheetBlock = ({
 			{name && !hideName && (
 				<ReactMarkdown
 					key="header"
-					children={`${headerForLevel[level]} ${name}`}
+					children={`${headerForLevel[parents.length]} ${name}`}
 				/>
 			)}
 			{editDescription && isEditing && (

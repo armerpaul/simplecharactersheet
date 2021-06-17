@@ -1,13 +1,23 @@
 import React from 'react'
 
-const BoxesBlock = ({ name, count, labels }) => {
-	const [currentLevel, setCurrentLevel] = React.useState(0)
+const BoxesBlock = ({
+	name,
+	count,
+	labels,
+	value,
+	path,
+	updateCharacter,
+}) => {
+	const currentLevel = value || 0
 	const [leftLabel, rightLabel] = labels || []
 	const indexedArray = Array.from(Array(count), (_, i) => i + 1)
 
 	const setLevel = level => {
 		const newLevel = currentLevel === level ? 0 : level
-		setCurrentLevel(newLevel)
+		updateCharacter({
+			path,
+			value: newLevel,
+		})
 	}
 
 	return [

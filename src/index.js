@@ -11,8 +11,8 @@ import {
 
 import AppHeader from './app-header'
 import AppHome from './app-home'
-import GameHome from './game-home'
-import CharacterSheet from './character-sheet'
+import CreateCharacter from './character/create'
+import CharacterSheet from './character/sheet'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,8 +20,8 @@ ReactDOM.render(
       <AppHeader />
       <Switch>
         <Route path="/" exact component={AppHome} />
-        <Route path="/:gameId" exact component={GameHome} />
-        <Route path="/:gameId/:characterId" exact component={CharacterSheet} />
+        <Route path="/:gameId/new" exact component={CreateCharacter} />
+        <Route path="/:gameId/:characterId" component={CharacterSheet} />
       </Switch>
     </Router>
   </React.StrictMode>,

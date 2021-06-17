@@ -19,9 +19,12 @@ const ListBlock = ({
 	pick,
 	items,
 	other,
-	isEditing
+	path,
+	value,
+	isEditing,
+	updateCharacter
 }) => {
-	const [checklist, setChecklist] = React.useState({})
+	const checklist = value || {}
 	const [otherValue, setOtherValue] = React.useState('')
 
 	const showOther = other && (isEditing || checklist['other'])
@@ -35,10 +38,13 @@ const ListBlock = ({
 			return
 		}
 
-		const newValue = !checklist[index]
-		setChecklist({
+		const newChecklist = {
 			...checklist,
-			[index]: newValue,
+			[index]: !checklist[index],
+		}
+		updateCharacter({
+			path,
+			value: newChecklist,
 		})
 	}
 

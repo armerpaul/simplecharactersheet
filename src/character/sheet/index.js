@@ -2,7 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import SheetBlock from './sheet-block'
 import Stats from './stats'
-import getCharacterData from './get-character-data'
+import {
+	getCharacterAndGameData,
+	updateAndSaveCharacter,
+} from '../data-store'
 import { useParams } from 'react-router-dom'
 
 const SheetContainer = styled.div`
@@ -39,13 +42,19 @@ const CharacterSheet = () => {
 
 	React.useEffect(
 		() => {
-			const data = getCharacterData({ characterId, gameId })
-			setCharacter(data.character)
-			setGame(data.game)
-			setSheet(data.sheet)
+			getCharacterAndGameData({ characterId, gameId }).then(data => {
+				setCharacter(data.character)
+				setGame(data.game)
+				setSheet(data.sheet)
+			})
 		},
 		[characterId, gameId]
 	)
+
+	const updateCharacter = ({ path, value }) => {
+		const updatedCharacter = updateAndSaveCharacter({ path, value, character })
+		setCharacter(updatedCharacter)
+	}
 
 	if (!game || !sheet) {
 		return (
@@ -85,7 +94,9 @@ const CharacterSheet = () => {
 				<SheetBlock
 					{...block}
 					key={`block-${index}`}
+					value={character[block.name]}
 					isEditing={isEditing}
+					updateCharacter={updateCharacter}
 				/>
 			))}
 		</SheetContainer>
