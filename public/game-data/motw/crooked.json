@@ -7,11 +7,11 @@
 			"type": "list",
 			"pick": 1,
 			"items": [
-				"Charm +1, Cool +1, Sharp +2, Tough 0, Weird -1",
-				"Charm -1, Cool +1, Sharp +1, Tough +2, Weird 0",
-				"Charm -1, Cool +2, Sharp +2, Tough 0, Weird -1",
-				"Charm +2, Cool +1, Sharp +1, Tough 0, Weird -1",
-				"Charm +2, Cool 0, Sharp +1, Tough -1, Weird +1"
+				"Charm+1, Cool+1, Sharp+2, Tough=0, Weird-1",
+				"Charm-1, Cool+1, Sharp+1, Tough+2, Weird=0",
+				"Charm-1, Cool+2, Sharp+2, Tough=0, Weird-1",
+				"Charm+2, Cool+1, Sharp+1, Tough=0, Weird-1",
+				"Charm+2, Cool=0, Sharp+1, Tough-1, Weird+1"
 			]
 		},
 		{
