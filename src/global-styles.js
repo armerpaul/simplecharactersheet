@@ -25,6 +25,22 @@ const ThemedStyles = styled.div`
   color: ${theme => theme.fontColor};
 	min-height: 100vh;
 
+	p {
+		margin-top: 0;
+	}
+
+	h2 {
+		margin-bottom: 0.5em;
+	}
+
+	h3 {
+		margin-bottom: 0.25em;
+	}
+
+	h4 {
+		margin-bottom: 0.25em;
+	}
+
 	a {
 		color: ${theme => theme.fontColor};
 		transition-property: color;
