@@ -1,34 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import SheetBlock from './sheet-block'
+import SheetBlock from './block'
 import Stats from './stats'
 import {
 	getCharacterAndGameData,
 	updateAndSaveCharacter,
 } from '../data-store'
+import { CharacterContainer, LoadingContainer } from '../styles'
 import { useParams } from 'react-router-dom'
 
-const SheetContainer = styled.div`
-	max-width: 50rem;
-	margin-left: auto;
-	margin-right: auto;
-`
-const LoadingContainer = styled(SheetContainer)`
-	@keyframes pulse {
-		from { opacity: 0.5 }
-		to { opacity: 1 }
-	}
-
-  animation-duration: 0.5s;
-  animation-name: pulse;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-
-	text-align: center;
-	padding: 20vh;
-	font-size: 2rem;
-`
-const ErrorContainer = styled(SheetContainer)`
+const ErrorContainer = styled(CharacterContainer)`
 	color: red;
 `
 
@@ -82,7 +63,7 @@ const CharacterSheet = () => {
 	}
 
 	return (
-		<SheetContainer>
+		<CharacterContainer>
 			<h1>{sheet.name}</h1>
 			<label
 				htmlFor="isEditing"
@@ -108,7 +89,7 @@ const CharacterSheet = () => {
 					updateCharacter={updateCharacter}
 				/>
 			))}
-		</SheetContainer>
+		</CharacterContainer>
 	)
 }
 
