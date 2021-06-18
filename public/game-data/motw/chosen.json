@@ -3,7 +3,7 @@
 	"description": "Your birth was prophesied. You are the Chosen One, and with your abilities you can save the world. If you fail, all will be destroyed. It all rests on you. Only you.",
 	"blocks": [
 		{
-			"name": "Ratings",
+			"name": "Starting Ratings",
 			"type": "list",
 			"pick": 1,
 			"items": [
@@ -41,8 +41,14 @@
 			]
 		},
 		{
+			"name": "Experience",
+			"description": "Whenever you roll and get a total of 6 or less, or when a move tells you to, mark an experience box.",
+			"type": "boxes",
+			"count": 5
+		},
+		{
 			"name": "Luck",
-			"description": "Mark luck to change a roll to 12 or avoid all harm from an injury.",
+			"description": "Mark luck to change a roll to 12 or avoid all harm from an injury. **Chosen special:** When you spend a point of Luck, the Keeper will bring your fate into play.",
 			"type": "boxes",
 			"count": 7,
 			"labels": [
@@ -200,10 +206,6 @@
 			]
 		},
 		{
-			"name": "Pronouns",
-			"type": "text"
-		},
-		{
 			"name": "Look",
 			"type": "parent",
 			"children": [
@@ -263,12 +265,6 @@
 				"They could have been the Chosen One instead of you, but they failed some trial. Tell them how they failed.",
 				"You saved their life, back when they didn’t know mon-sters were real. Tell them what you saved them from."
 			]
-		},
-		{
-			"name": "Experience",
-			"description": "Whenever you roll and get a total of 6 or less, or when a move tells you to, mark an experience box.",
-			"type": "boxes",
-			"count": 5
 		},
 		{
 			"name": "Improvements",
