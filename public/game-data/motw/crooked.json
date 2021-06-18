@@ -85,11 +85,12 @@
 				"**Driver:** You have +1 ongoing while driving, plus you can hotwire anything (the older it is, the fewer tools you need to do it). You also own two handy, wide-ly-available vehicles (perhaps a sportscar and a van).",
 				"**Home Ground:** Your crew made a point of keeping the locals happy - keeping them safe, ensuring things always went down okay. When you’re back in your old neighbourhood, you can always find people who will hide you or help you with a minor favour, no questions asked.",
 				"**Notorious:** You have a reputation from your criminal past. When you **reveal who you are**, your terrifying reputation counts as a reason for people to do what you ask, for the **manipulate someone** move. Revealing your identity to someone can create other problems later, of course."
-			]
+			],
+			"other": true
 		},
 		{
 			"name": "Gear",
-			"description": "Effective weapons, pick three:",
+			"editDescription": "Effective weapons, pick three:",
 			"type": "list",
 			"pick": 3,
 			"items": [
@@ -109,12 +110,13 @@
 			"description": "You didn’t get here without making enemies. Pick at least two of these and name the people involved:",
 			"type": "list",
 			"items": [
-				"A police detective, ___, has made it a personal goal to put you away.",
-				"You have a rival from your background, ___, who never misses a chance to screw you over.",
-				"You pissed off a well-connected criminal, ___, and they’ll do whatever they can to destroy you.",
-				"___ is someone with special powers, a person or monster, who you took advantage of.",
-				"___ is an old partner you betrayed in the middle of a job."
-			]
+				"A police detective has made it a personal goal to put you away.",
+				"You have a rival from your background who never misses a chance to screw you over.",
+				"You pissed off a well-connected criminal and they’ll do whatever they can to destroy you.",
+				"Someone with special powers, a person or monster, who you took advantage of.",
+				"An old partner you betrayed in the middle of a job."
+			],
+			"showItemAdditionalInfo": true
 		},
 		{
 			"name": "Underworld",
@@ -122,23 +124,12 @@
 			"type": "list",
 			"pick": 1,
 			"items": [
-				"The target of a job was a dangerous vampire.",
-				"The target of a job was a dangerous werewolf.",
-				"The target of a job was a dangerous troll.",
-				"The target of a job was a dangerous reptiloid.",
-				"You worked with someone who was more than they seemed: a sorcerer",
-				"You worked with someone who was more than they seemed: a demon",
-				"You worked with someone who was more than they seemed: a faerie",
-				"You worked with someone who was more than they seemed: a psychic",
-				"You were hired by an immortal.",
-				"You were hired by a god.",
-				"You were hired by an outsider.",
-				"You were hired by a witch.",
-				"Things went south on a job—-including a horde of goblins.",
-				"Things went south on a job—-including a hunger of ghouls.",
-				"Things went south on a job—-including a dream-eater. a sala-mander.",
-				"Things went south on a job—-including a salamander."
+				"The target of a job was a dangerous creature: a [vampire/werewolf/troll/reptiloid].",
+				"You worked with someone who was more than they seemed: a [sorcerer/demon/faerie/psychic]",
+				"You were hired by something weird: a(n) [immortal/god/outsider/witch]",
+				"Things went south on a job—-including: a [horde of goblins, hunger of ghouls, dream-eater, salamander]."
 			],
+			"showItemAdditionalInfo": true,
 			"other": true
 		},
 		{
@@ -186,7 +177,8 @@
 				"This hunter worked with you on a semi-legal or illegal job. Work out what it was.",
 				"This hunter is your moral compass. When you talk over things with them, their advice keeps you on the straight and narrow.",
 				"You’re powerfully attracted to this hunter. Maybe someday you’ll deserve them."
-			]
+			],
+			"showItemAdditionalInfo": true
 		},
 		{
 			"name": "Improvements",

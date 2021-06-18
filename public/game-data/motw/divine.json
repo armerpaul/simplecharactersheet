@@ -154,11 +154,12 @@
 				"They fill you with feelings of sexual infatuation. You are confused by the associated mortal emotions.",
 				"They saved your life, and you understand (intellectu-ally at least) that you owe them for it.",
 				"They're the person you go to for advice on mortal stuff (e.g sex, food, drugs, television, etc)."
-			]
+			],
+			"showItemAdditionalInfo": true
 		},
 		{
 			"name": "Improvements",
-			"description": "When you have filled all five experience boxes, you level up. Erase the marks and pick an improvement from the following list:",
+			"editDescription": "When you have filled all five experience boxes, you level up. Erase the marks and pick an improvement from the following list:",
 			"type": "list",
 			"items": [
 				"Get +1 Tough, max +3",
@@ -175,7 +176,7 @@
 		},
 		{
 			"name": "Advanced Improvements",
-			"description": "After you have leveled up five times, you qualify for advanced improvements below:",
+			"editDescription": "After you have leveled up five times, you qualify for advanced improvements below:",
 			"type": "list",
 			"items": [
 				"Get +1 to any rating, max +3.",

@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const ListItem = styled.div`
 	display: flex;
 	align-items: flex-start;
+	margin-bottom: 0.25em;
 `
 
 const Label = styled.label`
@@ -21,26 +22,28 @@ const ListBlock = ({
 	other,
 	path,
 	value,
+	showItemAdditionalInfo,
 	isEditing,
 	updateCharacter
 }) => {
 	const checklist = value || {}
-	const [otherValue, setOtherValue] = React.useState('')
 
-	const showOther = other && (isEditing || checklist['other'])
+	const otherValue = checklist['other']
+	const showOther = other && (isEditing || otherValue)
+
 	const checkCount = Object.keys(checklist).reduce(
 		(count, key) => count + (checklist[key] ? 1 : 0),
 		0
 	)
 
-	const toggleCheck = index => {
+	const setItemValue = ({ index, value }) => {
 		if (!isEditing) {
 			return
 		}
 
 		const newChecklist = {
 			...checklist,
-			[index]: !checklist[index],
+			[index]: value,
 		}
 		updateCharacter({
 			path,
@@ -50,11 +53,14 @@ const ListBlock = ({
 
 	return [
 		isEditing && pick && (
-			<span key="pick">Pick {pick} {checkCount > pick && '⚠️'}</span>
+			<span key="pick">Pick {pick} {checkCount !== pick && '⚠️'}</span>
 		),
 		...items.map((item, index) => {
 			const key = `${name} ${index}`
-			return (isEditing || checklist[index]) && (
+			const isChecked = !!checklist[index]
+			const additionalInfo = typeof checklist[index] === 'string' ? checklist[index] : ''
+
+			return (isEditing || isChecked) && (
 				<ListItem
 					key={key}
 				>
@@ -62,13 +68,20 @@ const ListBlock = ({
 						<input
 							id={key}
 							name={key}
-							checked={checklist[index]}
+							checked={isChecked}
 							type="checkbox"
-							onClick={() => toggleCheck(index)}
+							onClick={() => setItemValue({ index, value: !isChecked })}
 						/>
 					)}
 					<Label htmlFor={key}>
 						<ReactMarkdown children={item} />
+						{showItemAdditionalInfo && isChecked && (
+							<input
+								type="text"
+								value={additionalInfo}
+								onChange={event => setItemValue({ index, value: event.target.value })}
+							/>
+						)}
 					</Label>
 				</ListItem>
 			)
@@ -84,13 +97,13 @@ const ListBlock = ({
 							name={`${name} other`}
 							checked={checklist['other']}
 							type="checkbox"
-							onClick={() => toggleCheck('other')}
+							onClick={() => setItemValue({ index: 'other', value: !checklist['other'] })}
 						/>
 						<input
 							type="text"
-							onChange={event => {
-								setOtherValue(event.target.value)
-							}}
+							id={`${name} other value`}
+							name={`${name} other value`}
+							onChange={event => setItemValue({ index: 'other', value: event.target.value })}
 						/>
 					</>
 				) : (

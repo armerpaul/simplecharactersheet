@@ -72,7 +72,7 @@
 		},
 		{
 			"name": "Haven",
-			"description": "You have set up a haven, a safe place to work. Pick three of the options below for your haven:",
+			"description": "You have set up a haven, a safe place to work.",
 			"type": "list",
 			"pick": 3,
 			"items": [
@@ -152,7 +152,8 @@
 				"They once helped you get a singular item that is now part of your haven. Tell them what it was.",
 				"You were taught by the same master. Ask them how it ended.",
 				"You saved their life in a tight spot. Tell them what happened."
-			]
+			],
+			"showItemAdditionalInfo": true
 		},
 		{
 			"name": "Improvements",

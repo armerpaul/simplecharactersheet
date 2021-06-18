@@ -153,7 +153,8 @@
 						"**Dutiful:** When your fate rears its ugly head, and you act in accordance with any of your fate tags(either heroic or doom) then mark experience. If it's a heroic tag, take +1 forward.",
 						"**Invincible:** You always count as having 2-armour. This doesn't stack with other protection.",
 						"**Resilience:** You heal faster than normal people. Any time your harm gets healed, heal an extra point. Additionally, your wounds count as 1-harm less for the purpose of the Keeper's harm moves."
-					]
+					],
+					"other": true
 				}
 			]
 		},
@@ -264,7 +265,8 @@
 				"Just friends, from school or work or something. Ask them what.",
 				"They could have been the Chosen One instead of you, but they failed some trial. Tell them how they failed.",
 				"You saved their life, back when they didn’t know mon-sters were real. Tell them what you saved them from."
-			]
+			],
+			"showItemAdditionalInfo": true
 		},
 		{
 			"name": "Improvements",
