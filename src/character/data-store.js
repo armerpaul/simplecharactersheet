@@ -34,7 +34,6 @@ export const getSheetData = ({ gameId, sheetId }) => axios
 
 export const getCharacterData = ({ characterId }) => {
 	const raw = localStorage.getItem(lsKey(characterId))
-	console.log(raw)
 	if (!raw) {
 		throw new Error(`No saved character for id: ${characterId}` )
 	}
@@ -67,7 +66,7 @@ export const updateAndSaveCharacter = ({ path, value, character }) => {
 		return updatedCharacter
 	} catch (e) {
 		console.error(e)
-		return character
+		throw new Error(`Error saving character`)
 	}
 
 }
