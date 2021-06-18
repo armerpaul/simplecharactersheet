@@ -36,17 +36,24 @@ const CharacterSheet = () => {
 	let { gameId, characterId } = useParams()
 
 	const [isEditing, setIsEditing] = React.useState(true)
+	const [error, setError] = React.useState()
 	const [character, setCharacter] = React.useState()
 	const [game, setGame] = React.useState()
 	const [sheet, setSheet] = React.useState()
 
 	React.useEffect(
 		() => {
-			getCharacterAndGameData({ characterId, gameId }).then(data => {
-				setCharacter(data.character)
-				setGame(data.game)
-				setSheet(data.sheet)
-			})
+			getCharacterAndGameData({ characterId, gameId }).then(
+				({ error, ...data }) => {
+					if (error) {
+						setError(error)
+						return
+					}
+					setCharacter(data.character)
+					setGame(data.game)
+					setSheet(data.sheet)
+					setError(undefined)
+				})
 		},
 		[characterId, gameId]
 	)
@@ -56,19 +63,21 @@ const CharacterSheet = () => {
 		setCharacter(updatedCharacter)
 	}
 
+	if (error) {
+		return (
+			<ErrorContainer>{error}</ErrorContainer>
+		)
+	}
+
 	if (!game || !sheet) {
 		return (
-			<LoadingContainer>
-				Loading...
-			</LoadingContainer>
+			<LoadingContainer>Loading...</LoadingContainer>
 		)
 	}
 
 	if (!character) {
 		return (
-			<ErrorContainer>
-				Error loading character
-			</ErrorContainer>
+			<ErrorContainer>Error loading character</ErrorContainer>
 		)
 	}
 

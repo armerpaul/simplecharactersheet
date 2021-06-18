@@ -26,7 +26,7 @@ const CreateCharacter = () => {
 				</label>
 			))}
 			<button onClick={() => {
-				const character = createCharacter({ sheet: selectedSheet })
+				const character = createCharacter({ gameId, sheetId: selectedSheet })
 				history.push(`/${gameId}/${character.id}`)
 			}}>Create</button>
 		</div>
