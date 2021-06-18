@@ -15,7 +15,7 @@ import {
 } from '../global-styles'
 
 const StyledHeader = styled.header`
-	padding: 0.5em;
+	padding: 0.5em 1.5em;
 	font-size: 1.25rem;
 	opacity: 0.4;
 	display: flex;

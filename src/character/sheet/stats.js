@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { getGlobalTheme } from '../../global-styles'
 
 const StatsContainer = styled.div`
 	display: flex;
@@ -29,7 +30,7 @@ const StatCircle = styled.div`
 `
 
 const StatName = styled.div`
-
+	font-weight: bold;
 `
 const StatNumber = styled.span`
 	font-size: 2rem;
@@ -42,12 +43,14 @@ const StatButton = styled.button`
 	border: none;
 	opacity: 0.5;
 	flex: 0 1 50%;
+	color: ${getGlobalTheme().fontColor};
 
 	&:not(:disabled) {
 		cursor: pointer;
 
 		&:hover {
-			background: rgba(0, 0, 0, 0.2);
+			background-color: ${getGlobalTheme().fontColor};
+			color: ${getGlobalTheme().backgroundColor};
 		}
 	}
 `
