@@ -36,6 +36,7 @@ const StatNumber = styled.span`
 	font-size: 2rem;
 	line-height: ${CIRCLE_SIZE};
 	flex: 1 1 100%;
+	font-weight: bold;
 `
 const StatButton = styled.button`
 	background: transparent;
@@ -44,6 +45,10 @@ const StatButton = styled.button`
 	opacity: 0.5;
 	flex: 0 1 50%;
 	color: ${getGlobalTheme().fontColor};
+
+	&:disabled {
+		opacity: 0;
+	}
 
 	&:not(:disabled) {
 		cursor: pointer;
