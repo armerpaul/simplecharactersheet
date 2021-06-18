@@ -3,9 +3,8 @@ body {
   font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #FBF9F4;
 }
 
-h1, h2, h3, h4, h5 {
+header, h1, h2, h3, h4, h5 {
   font-family: 'Libre Baskerville', serif;
 }

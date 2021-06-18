@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './global-styles.css';
+import './font-styles.css';
 import reportWebVitals from './reportWebVitals';
 
 import {
@@ -9,21 +9,25 @@ import {
   Route
 } from 'react-router-dom'
 
-import AppHeader from './app-header'
+import { GlobalStyles } from './global-styles'
+
+import AppHeader from './header'
 import AppHome from './app-home'
 import CreateCharacter from './character/create'
 import CharacterSheet from './character/sheet'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <AppHeader />
-      <Switch>
-        <Route path="/" exact component={AppHome} />
-        <Route path="/:gameId/new" exact component={CreateCharacter} />
-        <Route path="/:gameId/:characterId" component={CharacterSheet} />
-      </Switch>
-    </Router>
+    <GlobalStyles>
+      <Router>
+        <AppHeader />
+        <Switch>
+          <Route path="/" exact component={AppHome} />
+          <Route path="/:gameId/new" exact component={CreateCharacter} />
+          <Route path="/:gameId/:characterId" component={CharacterSheet} />
+        </Switch>
+      </Router>
+    </GlobalStyles>
   </React.StrictMode>,
   document.getElementById('root')
 );
