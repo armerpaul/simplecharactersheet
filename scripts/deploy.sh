@@ -7,9 +7,9 @@ fi
 yarn build
 git checkout public
 git pull
-mv CNAME build/CNAME
+mv CNAME public/CNAME
 rm -rf `ls | grep -v public`
-mv build/* .
+mv public/* .
 git add .
 git commit -am "Deploying to production on `date`"
 git push
