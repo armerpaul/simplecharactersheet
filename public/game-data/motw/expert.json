@@ -68,7 +68,8 @@
 				"**Precise Strike:** When you inflict harm on a monster, you can **aim for a weak spot**. Roll +Tough. On a 10+ you inflict +2 harm. On a 7-9 you inflict +1 harm. On a miss, you leave yourself open to the monster.",
 				"**The Woman (or Man) With The Plan:** **At the beginning of each mystery**, roll +Sharp. On a 10+ hold 2, on a 7-9 hold 1. Spend the hold to be where you need to be, prepared and ready. On a miss, the Keeper holds 1 they can spend to put you in the worst place, unprepared and unready.",
 				"**Dark Past:** If you trawl through your memories for something relevant to the case at hand, roll +Weird. On a 10+ ask the Keeper two questions from the list below. On a 7-9 ask one. On a miss, you can ask a question anyway but that will mean you were personally complicit in creating the situation you are now dealing with. The questions are:\n* When I dealt with this creature (or one of its kind), what did I learn?\n* What black magic do I know that could help here?\n* Do I know anyone who might be behind this?\n* Who do I know who can help us right now?"
-			]
+			],
+			"other": true
 		},
 		{
 			"name": "Haven",

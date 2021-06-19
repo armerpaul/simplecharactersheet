@@ -68,7 +68,8 @@
 				"**Soothe:** **When you talk to someone for a few seconds in a quiet voice**, you can calm them down, blocking any panic, anger, or other negative emo-tions they have. This works even if the thing that freaked them out is still present, as long as your voice can be heard.",
 				"**Lay On Hands:** Your touch can heal injury and disease. When you **lay your hands** on someone hurt, roll +Cool. On a 10+, heal 2 harm or an illness, plus they're stabilized. On a 7-9, you can heal the harm or illness as on a 10+, but you take it into your-self. On a miss, your aura causes them extra harm.",
 				"**Cast Out Evil:** You may **banish an unnatural creature from your presence**. Roll +Tough. On a 10+ it is banished. On a 7-9 it takes a little while for the banishing to take effect—the creature has time to make one or two actions. Either way, the banished creature is unharmed, and you have no control over where it goes. This move may be used on unnatural hunters (e.g. the Monstrous). On a miss, something is keeping it here. That's bad"
-			]
+			],
+			"other": true
 		},
 		{
 			"name": "Gear",
