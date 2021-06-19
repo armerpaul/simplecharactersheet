@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { useParams, useHistory } from 'react-router-dom'
 import { getGameData, createCharacter } from './data-store'
 import { CharacterContainer, LoadingContainer } from './styles'
+import { Button, RadioInput } from '../global-styles'
+import { GiNewBorn as CreateIcon } from 'react-icons/gi'
 
 const SheetList = styled.div`
 	display: flex;
@@ -10,10 +12,12 @@ const SheetList = styled.div`
 	margin-bottom: 1em;
 	align-items: flex-start;
 `
-
 const SheetLabel = styled.label`
 	margin-bottom: 0.25em;
 	cursor: pointer;
+`
+const CreateButton = styled(Button)`
+	font-size: 1.5em;
 `
 
 const CreateCharacter = () => {
@@ -29,12 +33,11 @@ const CreateCharacter = () => {
 	return gameData && gameData.sheets ? (
 		<CharacterContainer>
 			<h1>Create a character</h1>
-			<h3>Pick a sheet to create a {gameData.name} character</h3>
+			<h3>Pick a sheet to create a {gameData.name} character:</h3>
 			<SheetList>
 				{Object.keys(gameData.sheets).map(sheetId => (
 					<SheetLabel key={sheetId}>
-						<input
-							type="radio"
+						<RadioInput
 							name="sheet"
 							value={sheetId}
 							onChange={event => setSelectedSheet(event.target.value)}
@@ -43,10 +46,15 @@ const CreateCharacter = () => {
 					</SheetLabel>
 				))}
 			</SheetList>
-			<button onClick={() => {
-				const character = createCharacter({ gameId, sheetId: selectedSheet })
-				history.push(`/${gameId}/${character.id}`)
-			}}>Create</button>
+			<CreateButton
+				disabled={!selectedSheet}
+				icon={CreateIcon}
+				label="Create"
+				onClick={() => {
+					const character = createCharacter({ gameId, sheetId: selectedSheet })
+					history.push(`/${gameId}/${character.id}`)
+				}}
+			/>
 		</CharacterContainer>
 	) : (
 		<LoadingContainer>Loading...</LoadingContainer>

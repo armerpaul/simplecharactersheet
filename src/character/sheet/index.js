@@ -1,14 +1,15 @@
 import React from 'react'
+import * as R from 'ramda'
 import styled from 'styled-components'
 import SheetBlock from './block'
 import Stats from './stats'
 import {
 	getCharacterAndGameData,
-	updateAndSaveCharacter,
+	saveCharacter,
 } from '../data-store'
 import { CharacterContainer, LoadingContainer } from '../styles'
 import { useParams } from 'react-router-dom'
-import { Button, getGlobalTheme, IconButton } from '../../global-styles'
+import { Button, getGlobalTheme, IconButton, TextInput } from '../../global-styles'
 import {
 	GiTinker as EditIcon,
 	GiThumbUp as SaveIcon,
@@ -28,14 +29,11 @@ const CharacterHeader = styled.div`
 	border-bottom: 0.15rem solid;
 	background: ${getGlobalTheme().backgroundColor};
 	top: 0;
+	z-index: 1;
 `
 const CharacterName = styled.h1`
 	margin-top: 0;
 	margin-bottom: 0;
-`
-const NameInput = styled.input.attrs({ type: 'text' })`
-	font-size: inherit;
-	font-family: inherit;
 `
 const CharacterOptions = styled.div`
 	font-size: 1.25rem;
@@ -48,7 +46,7 @@ const SheetName = styled.h5`
 const CharacterSheet = () => {
 	let { gameId, characterId } = useParams()
 
-	const [isEditing, setIsEditing] = React.useState(true)
+	const [isEditing, setIsEditing] = React.useState(false)
 	const [error, setError] = React.useState()
 	const [character, setCharacter] = React.useState()
 	const [game, setGame] = React.useState()
@@ -62,7 +60,11 @@ const CharacterSheet = () => {
 						setError(error)
 						return
 					}
-					setCharacter(data.character)
+					setIsEditing(!data.character.name)
+					setCharacter({
+						name: `Name your ${data.sheet.name}`,
+						...data.character
+					})
 					setGame(data.game)
 					setSheet(data.sheet)
 					setError(undefined)
@@ -71,8 +73,15 @@ const CharacterSheet = () => {
 		[characterId, gameId]
 	)
 
+	React.useEffect(() => {
+		if (character && !isEditing) {
+			saveCharacter(character)
+		}
+	}, [character, isEditing])
+
 	const updateCharacter = ({ path, value }) => {
-		const updatedCharacter = updateAndSaveCharacter({ path, value, character })
+		const pathLens = R.lensPath(path)
+		const updatedCharacter = R.set(pathLens, value, character)
 		setCharacter(updatedCharacter)
 	}
 
@@ -99,7 +108,7 @@ const CharacterSheet = () => {
 			<CharacterHeader>
 				<CharacterName>
 					{isEditing ? (
-						<NameInput
+						<TextInput
 							value={character.name}
 							onChange={event => updateCharacter({ path: ['name'], value: event.target.value })}
 						/>
@@ -110,7 +119,10 @@ const CharacterSheet = () => {
 						<Button
 							icon={SaveIcon}
 							label="Save"
-							onClick={() => setIsEditing(false)}
+							onClick={() => {
+								saveCharacter(character)
+								setIsEditing(false)
+							}}
 						/>
 					) : (
 						<IconButton

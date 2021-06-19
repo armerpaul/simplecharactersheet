@@ -4,7 +4,7 @@ import { getGlobalTheme } from '../../global-styles'
 
 const StatsContainer = styled.div`
 	display: flex;
-	align-items: center;
+	justify-content: center;
 `
 
 const CIRCLE_SIZE = '4rem'

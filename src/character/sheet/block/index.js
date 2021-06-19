@@ -17,15 +17,6 @@ const headerForLevel = {
 	3: '#####',
 }
 
-const hasValue = value => typeof value === 'object'
-	? R.reduce(
-			(hasVal, val) => (hasVal || val),
-			false,
-			R.values(
-				R.mapObjIndexed(hasValue, value)
-			)
-	) : !!value
-
 const SheetBlock = ({
 	hideName,
 	type,
@@ -61,7 +52,7 @@ const SheetBlock = ({
 	}
 
 
-	const showBlock = isEditing || hasValue(value)
+	const showBlock = isEditing || contents || type === 'boxes'
 
 	return showBlock ? (
 		<div key={name}>

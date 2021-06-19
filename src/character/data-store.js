@@ -1,4 +1,3 @@
-import * as R from 'ramda'
 import axios from 'axios'
 
 const lsKey = characterId => `scs-${characterId}`
@@ -10,7 +9,6 @@ export const createCharacter = ({ gameId, sheetId, name }) => {
 		id,
 		gameId,
 		sheetId,
-		name: name || `Character ${id}`
 	}
 	localStorage.setItem(lsKey(id), JSON.stringify(character))
 	return character
@@ -58,12 +56,11 @@ export const getCharacterAndGameData = async ({ gameId, characterId }) => {
 	}
 }
 
-export const updateAndSaveCharacter = ({ path, value, character }) => {
+export const saveCharacter = character => {
 	try {
-		const pathLens = R.lensPath(path)
-		const updatedCharacter = R.set(pathLens, value, character)
-		localStorage.setItem(lsKey(character.id), JSON.stringify(updatedCharacter))
-		return updatedCharacter
+		const raw = JSON.stringify(character)
+		console.log(raw)
+		localStorage.setItem(lsKey(character.id), raw)
 	} catch (e) {
 		console.error(e)
 		throw new Error(`Error saving character`)

@@ -1,4 +1,13 @@
 import React from 'react'
+import styled from 'styled-components'
+import { CheckboxInput } from '../../../global-styles'
+
+const BoxesContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 0.75em;
+`
 
 const BoxesBlock = ({
 	name,
@@ -20,23 +29,24 @@ const BoxesBlock = ({
 		})
 	}
 
-	return [
-		<span key={`${name} left`}>{leftLabel}</span>,
-		...indexedArray.map(level => {
-			const key = `${name} ${level}`
-			return (
-				<input
-					id={key}
-					key={key}
-					name={name}
-					type="checkbox"
-					checked={level <= currentLevel}
-					onChange={() => setLevel(level)}
-				/>
-			)
-		}),
-		<span key={`${name} right`}>{rightLabel}</span>
-	]
+	return (
+		<BoxesContainer>
+			<span key={`${name} left`}>{leftLabel}</span>
+			{indexedArray.map(level => {
+				const key = `${name} ${level}`
+				return (
+					<CheckboxInput
+						id={key}
+						key={key}
+						name={name}
+						checked={level <= currentLevel}
+						onChange={() => setLevel(level)}
+					/>
+				)
+			})}
+			<span key={`${name} right`}>{rightLabel}</span>
+		</BoxesContainer>
+	)
 }
 
 export default BoxesBlock
