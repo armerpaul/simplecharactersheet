@@ -59,7 +59,6 @@ export const getCharacterAndGameData = async ({ gameId, characterId }) => {
 export const saveCharacter = character => {
 	try {
 		const raw = JSON.stringify(character)
-		console.log(raw)
 		localStorage.setItem(lsKey(character.id), raw)
 	} catch (e) {
 		console.error(e)
