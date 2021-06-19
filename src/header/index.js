@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import {
-	FaMoon,
-	FaCloudMoon,
-	FaSun,
-} from "react-icons/fa";
+	GiSun as LightIcon,
+	GiWitchFlight as DimIcon,
+	GiMoonBats as DarkIcon,
+} from "react-icons/gi";
 import {
 	getGlobalTheme,
 	setGlobalTheme,
@@ -55,13 +55,13 @@ const AppHeader = () => {
 			<HomeLink to="/">Simple Character Sheet</HomeLink>
 			<ThemeToggleList>
 				<ThemeToggle onClick={() => setGlobalTheme(LIGHT_THEME)}>
-					<FaSun />
+					<LightIcon />
 				</ThemeToggle>
 				<ThemeToggle onClick={() => setGlobalTheme(DIM_THEME)}>
-					<FaMoon />
+					<DimIcon />
 				</ThemeToggle>
 				<ThemeToggle onClick={() => setGlobalTheme(DARK_THEME)}>
-					<FaCloudMoon />
+					<DarkIcon />
 				</ThemeToggle>
 			</ThemeToggleList>
 		</StyledHeader>

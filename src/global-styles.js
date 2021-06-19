@@ -15,7 +15,7 @@ export const DIM_THEME = {
 }
 export const DARK_THEME = {
 	name: 'Foggy Night',
-	backgroundColor: 'hsl(255, 27.8%, 7.1%)',
+	backgroundColor: 'hsl(255, 15%, 7.1%)',
 	fontColor: 'hsl(235, 17.4%, 82%)',
 	linkColor: 'hsl(255, 50%, 50%)'
 }
