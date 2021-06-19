@@ -51,6 +51,17 @@ const ListBlock = ({
 		})
 	}
 
+
+
+	if (!isEditing && checkCount === 0) {
+		console.log({
+			name,
+			isEditing,
+			checkCount,
+		})
+		return null
+	}
+
 	return [
 		isEditing && pick && (
 			<span key="pick">Pick {pick} {checkCount !== pick && '⚠️'}</span>

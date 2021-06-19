@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import * as R from 'ramda'
 
 import BoxesBlock from './boxes-block'
 import ListBlock from './list-block'
@@ -16,6 +17,15 @@ const headerForLevel = {
 	3: '#####',
 }
 
+const hasValue = value => typeof value === 'object'
+	? R.reduce(
+			(hasVal, val) => (hasVal || val),
+			false,
+			R.values(
+				R.mapObjIndexed(hasValue, value)
+			)
+	) : !!value
+
 const SheetBlock = ({
 	hideName,
 	type,
@@ -31,16 +41,18 @@ const SheetBlock = ({
 	let contents
 	if ('parent' === type) {
 		const { children } = otherArgs
-		contents = children.map(child => (
-			<SheetBlock
-				{...child}
-				key={`${name} ${child.name}`}
-				value={value && value[child.name]}
-				updateCharacter={updateCharacter}
-				isEditing={isEditing}
-				parents={path}
-			/>
-		))
+		contents = children.map(child => {
+			return (
+				<SheetBlock
+					{...child}
+					key={`${name} ${child.name}`}
+					value={value && value[child.name]}
+					updateCharacter={updateCharacter}
+					isEditing={isEditing}
+					parents={path}
+				/>
+			)
+		})
 	} else {
 		const BlockType = BlockTypes[type]
 		contents = BlockType && (
@@ -48,7 +60,10 @@ const SheetBlock = ({
 		)
 	}
 
-	return (
+
+	const showBlock = isEditing || hasValue(value)
+
+	return showBlock ? (
 		<div key={name}>
 			{name && !hideName && (
 				<ReactMarkdown
@@ -64,7 +79,7 @@ const SheetBlock = ({
 			)}
 			{contents}
 		</div>
-	)
+	) : null
 
 }
 
