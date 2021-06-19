@@ -12,7 +12,7 @@ const StyledListItem = styled.div`
 const ListItemText = styled.div`
 	display: flex;
 	flex-direction: column;
-	flex: 1 0 100%;
+	flex: 1 1 100%;
 	cursor: pointer;
 `
 const ListItemValue = styled.div`
