@@ -4,6 +4,7 @@ export const CharacterContainer = styled.div`
 	max-width: 50rem;
 	margin-left: auto;
 	margin-right: auto;
+	padding-bottom: 20vh;
 `
 
 export const LoadingContainer = styled(CharacterContainer)`

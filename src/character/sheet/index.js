@@ -8,9 +8,41 @@ import {
 } from '../data-store'
 import { CharacterContainer, LoadingContainer } from '../styles'
 import { useParams } from 'react-router-dom'
+import { Button, getGlobalTheme, IconButton } from '../../global-styles'
+import {
+	GiTinker as EditIcon,
+	GiThumbUp as SaveIcon,
+} from 'react-icons/gi'
 
 const ErrorContainer = styled(CharacterContainer)`
 	color: red;
+`
+const CharacterHeader = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: end;
+	justify-content: space-between;
+	margin-top: 6vh;
+	position: sticky;
+	padding: 1.25em 0 0.75em;
+	border-bottom: 0.15rem solid;
+	background: ${getGlobalTheme().backgroundColor};
+	top: 0;
+`
+const CharacterName = styled.h1`
+	margin-top: 0;
+	margin-bottom: 0;
+`
+const NameInput = styled.input.attrs({ type: 'text' })`
+	font-size: inherit;
+	font-family: inherit;
+`
+const CharacterOptions = styled.div`
+	font-size: 1.25rem;
+`
+const SheetName = styled.h5`
+	font-size: 1.25rem;
+	margin-top: 0.5em;
 `
 
 const CharacterSheet = () => {
@@ -64,18 +96,33 @@ const CharacterSheet = () => {
 
 	return (
 		<CharacterContainer>
-			<h1>{sheet.name}</h1>
-			<label
-				htmlFor="isEditing"
-			>
-				<span>Editing:</span>
-				<input
-					id="isEditing"
-					type="checkbox"
-					onChange={() => setIsEditing(!isEditing)}
-					checked={isEditing}
-				/>
-			</label>
+			<CharacterHeader>
+				<CharacterName>
+					{isEditing ? (
+						<NameInput
+							value={character.name}
+							onChange={event => updateCharacter({ path: ['name'], value: event.target.value })}
+						/>
+					) : character.name}
+				</CharacterName>
+				<CharacterOptions>
+					{isEditing ? (
+						<Button
+							icon={SaveIcon}
+							label="Save"
+							onClick={() => setIsEditing(false)}
+						/>
+					) : (
+						<IconButton
+							icon={EditIcon}
+							label="Edit Character"
+							onClick={() => setIsEditing(true)}
+						/>
+					)}
+				</CharacterOptions>
+			</CharacterHeader>
+			<SheetName>{sheet.name}</SheetName>
+
 			<p>{sheet.description}</p>
 
 			<Stats {...game.stats} isEditing={isEditing} />
