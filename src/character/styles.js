@@ -1,13 +1,6 @@
 import styled from 'styled-components'
 
-export const CharacterContainer = styled.div`
-	max-width: 50rem;
-	margin-left: auto;
-	margin-right: auto;
-	padding-bottom: 20vh;
-`
-
-export const LoadingContainer = styled(CharacterContainer)`
+export const LoadingContainer = styled.div`
 	@keyframes pulse {
 		from { opacity: 0.5 }
 		to { opacity: 1 }
@@ -21,4 +14,8 @@ export const LoadingContainer = styled(CharacterContainer)`
 	text-align: center;
 	padding: 20vh;
 	font-size: 2rem;
+`
+
+export const CharacterContainer = styled.div`
+
 `

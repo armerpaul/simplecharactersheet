@@ -7,7 +7,7 @@ import {
 	getCharacterAndGameData,
 	saveCharacter,
 } from '../data-store'
-import { CharacterContainer, LoadingContainer } from '../styles'
+import { LoadingContainer, CharacterContainer } from '../styles'
 import { useParams } from 'react-router-dom'
 import { Button, getGlobalTheme, IconButton, TextInput } from '../../global-styles'
 import {
@@ -23,7 +23,6 @@ const CharacterHeader = styled.div`
 	flex-direction: row;
 	align-items: end;
 	justify-content: space-between;
-	margin-top: 6vh;
 	position: sticky;
 	padding: 1.25em 0 0.75em;
 	border-bottom: 0.15rem solid;

@@ -2,30 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './font-styles.css';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom'
+import { GlobalStyles, AppContainer } from './global-styles'
+import Routes from './app/routes'
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom'
-
-import { GlobalStyles } from './global-styles'
-
-import AppHeader from './header'
-import AppHome from './app-home'
-import CreateCharacter from './character/create'
-import CharacterSheet from './character/sheet'
+import AppHeader from './app/header'
+import AppFooter from './app/footer'
 
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles>
       <Router>
         <AppHeader />
-        <Switch>
-          <Route path="/" exact component={AppHome} />
-          <Route path="/:gameId/new" exact component={CreateCharacter} />
-          <Route path="/:gameId/:characterId" component={CharacterSheet} />
-        </Switch>
+        <AppContainer>
+          <Routes />
+        </AppContainer>
+        <AppFooter />
       </Router>
     </GlobalStyles>
   </React.StrictMode>,

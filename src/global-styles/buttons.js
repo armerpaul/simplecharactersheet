@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { getGlobalTheme } from './themes'
 
 const BaseButton = styled.button`
+	width: 100%;
+	text-align: center;
 	padding: 0.3em 0.75em;
 	margin: 0;
 	font-size: inherit;
@@ -13,6 +15,7 @@ const BaseButton = styled.button`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: center;
 
 	&:disabled {
 		opacity: 0.6;
@@ -21,7 +24,6 @@ const BaseButton = styled.button`
 `
 
 const ButtonText = styled.span`
-	font-size: 0.8em;
 	margin-left: 0.2em;
 	font-weight: bold;
 `
@@ -33,6 +35,10 @@ const StyledButton = styled(BaseButton)`
 
 	&:not(:disabled):hover {
 		background: ${getGlobalTheme().linkColor};
+	}
+
+	svg {
+		font-size: 1.75em
 	}
 `
 export const Button = ({ icon: Icon, label, ...props}) => (
