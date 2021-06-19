@@ -4,6 +4,7 @@ if [[ -n "$changed_files" ]]; then
 	exit 1
 fi
 
+yarn install
 yarn build
 git checkout public
 git pull
