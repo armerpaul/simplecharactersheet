@@ -8,4 +8,6 @@ export const AppContainer = styled.div`
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 6vh;
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
 `
