@@ -83,13 +83,13 @@
 				},
 				{
 					"name": "Luck Special",
+					"hideName": true,
 					"description": "*"
 				}
 			]
 		},
 		{
 			"name": "Moves",
-			"description": "You get all of the basic moves, plus:",
 			"type": "parent",
 			"children": [
 				{
@@ -97,6 +97,7 @@
 					"optional": true,
 					"hideName": true,
 					"editDescription": "*",
+					"type": "list",
 					"pick": "all",
 					"items": "*"
 				},
@@ -104,6 +105,7 @@
 					"name": "Playbook Moves",
 					"hideName": true,
 					"editDescription": "*",
+					"type": "list",
 					"items": "*"
 				}
 			]
