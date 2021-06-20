@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Button, TABLET_SIZE, DESKTOP_SIZE } from '../global-styles'
+import { Button, TABLET_SIZE } from '../global-styles'
 import {
 	GiShamblingMound as MotwIcon,
 	GiAnvilImpact as UnderConstructionIcon,
