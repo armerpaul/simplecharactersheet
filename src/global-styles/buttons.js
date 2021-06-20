@@ -17,7 +17,12 @@ const BaseButton = styled.button`
 	align-items: center;
 	justify-content: center;
 
+	* {
+		text-decoration: none;
+	}
+
 	&:disabled {
+		background: ${getGlobalTheme().fontColor};
 		opacity: 0.6;
 		cursor: not-allowed;
 	}
@@ -28,14 +33,21 @@ const ButtonText = styled.span`
 	font-weight: bold;
 `
 const StyledButton = styled(BaseButton)`
-	background: ${getGlobalTheme().fontColor};
+	background: ${getGlobalTheme().linkColor};
 	color: ${getGlobalTheme().backgroundColor};
 	transition-property: background opacity;
 	transition-duration: 0.25s;
 
-	&:not(:disabled):hover {
-		background: ${getGlobalTheme().linkColor};
+	&:not(:disabled) {
+		&:hover, &:focus {
+			background: ${getGlobalTheme().linkColor.mix(getGlobalTheme().fontColor)};
+		}
+
+		&:active {
+			background: ${getGlobalTheme().fontColor};
+		}
 	}
+
 
 	svg {
 		font-size: 1.75em
@@ -54,10 +66,23 @@ const StyledIconButton = styled(BaseButton)`
 	background: none;
 
 	svg{
-		fill: ${getGlobalTheme().fontColor};
+		fill: ${getGlobalTheme().linkColor};
 		transition-property: fill;
 		transition-duration: 0.25s;
 	}
+
+	&:not(:disabled) {
+		&:hover, &:focus {
+			svg {
+				fill: ${getGlobalTheme().linkColor.mix(getGlobalTheme().fontColor)};
+			}
+		}
+
+		&:active svg {
+			fill: ${getGlobalTheme().fontColor};
+		}
+	}
+
 
 	&:hover svg {
 		fill: ${getGlobalTheme().linkColor};

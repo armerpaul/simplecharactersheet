@@ -24,6 +24,28 @@ const stylesByTheme = {
 	}
 }
 
+const THEME_LS_KEY = 'scs-theme'
+let globalTheme
+
+export const setGlobalTheme = theme => {
+	if (!theme || (theme === globalTheme)) {
+		return
+	}
+	localStorage.setItem(THEME_LS_KEY, theme)
+	window.location.reload()
+}
+
+export const getGlobalTheme = () => {
+	if (!globalTheme) {
+		try {
+			globalTheme = localStorage.getItem(THEME_LS_KEY) || LIGHT_THEME
+		} catch (e) {
+			console.error(e)
+		}
+	}
+	return stylesByTheme[globalTheme] || stylesByTheme[LIGHT_THEME]
+}
+
 const ThemedStyles = styled.div`
   background: ${theme => theme.backgroundColor};
   color: ${theme => theme.fontColor};
@@ -46,37 +68,21 @@ const ThemedStyles = styled.div`
 	}
 
 	a {
-		color: ${theme => theme.fontColor};
+		color: ${theme => theme.linkColor};
 		transition-property: color;
 		transition-duration: 0.3s;
+		font-weight: bold;
+		text-decoration: none;
 
-		&:hover {
-			color: ${theme => theme.linkColor};
+		&:hover, &:focus {
+			color: ${getGlobalTheme().linkColor.mix(getGlobalTheme().fontColor)};
+		}
+
+		&:active {
+			color: ${getGlobalTheme().fontColor};
 		}
 	}
 `
-
-const THEME_LS_KEY = 'scs-theme'
-let globalTheme
-
-export const setGlobalTheme = theme => {
-	if (!theme || (theme === globalTheme)) {
-		return
-	}
-	localStorage.setItem(THEME_LS_KEY, theme)
-	window.location.reload()
-}
-
-export const getGlobalTheme = () => {
-	if (!globalTheme) {
-		try {
-			globalTheme = localStorage.getItem(THEME_LS_KEY) || LIGHT_THEME
-		} catch (e) {
-			console.error(e)
-		}
-	}
-	return stylesByTheme[globalTheme] || stylesByTheme[LIGHT_THEME]
-}
 
 export const GlobalStyles = ({ children }) => {
 	const [theme, setTheme] = React.useState(LIGHT_THEME)

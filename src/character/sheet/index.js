@@ -9,7 +9,13 @@ import {
 } from '../data-store'
 import { LoadingContainer, CharacterContainer } from '../styles'
 import { useParams } from 'react-router-dom'
-import { Button, getGlobalTheme, IconButton, TextInput } from '../../global-styles'
+import {
+	Button,
+	IconButton,
+	TextInput,
+	getGlobalTheme,
+	TABLET_SIZE,
+} from '../../global-styles'
 import {
 	GiTinker as EditIcon,
 	GiThumbUp as SaveIcon,
@@ -20,8 +26,8 @@ const ErrorContainer = styled(CharacterContainer)`
 `
 const CharacterHeader = styled.div`
 	display: flex;
-	flex-direction: row;
-	align-items: end;
+	flex-direction: column;
+	align-items: stretch;
 	justify-content: space-between;
 	position: sticky;
 	padding: 1.25em 0 0.75em;
@@ -29,6 +35,11 @@ const CharacterHeader = styled.div`
 	background: ${getGlobalTheme().backgroundColor};
 	top: 0;
 	z-index: 1;
+
+	@media (min-width: ${TABLET_SIZE}) {
+		flex-direction: row-reverse;
+		align-items: end;
+	}
 `
 const CharacterName = styled.h1`
 	margin-top: 0;
@@ -36,6 +47,12 @@ const CharacterName = styled.h1`
 `
 const CharacterOptions = styled.div`
 	font-size: 1.25rem;
+	display: flex;
+	justify-content: flex-end;
+
+	> * {
+		flex: 0 1;
+	}
 `
 const SheetName = styled.h5`
 	font-size: 1.25rem;
@@ -105,14 +122,6 @@ const CharacterSheet = () => {
 	return (
 		<CharacterContainer>
 			<CharacterHeader>
-				<CharacterName>
-					{isEditing ? (
-						<TextInput
-							value={character.name}
-							onChange={event => updateCharacter({ path: ['name'], value: event.target.value })}
-						/>
-					) : character.name}
-				</CharacterName>
 				<CharacterOptions>
 					{isEditing ? (
 						<Button
@@ -131,6 +140,14 @@ const CharacterSheet = () => {
 						/>
 					)}
 				</CharacterOptions>
+				<CharacterName>
+					{isEditing ? (
+						<TextInput
+							value={character.name}
+							onChange={event => updateCharacter({ path: ['name'], value: event.target.value })}
+						/>
+					) : character.name}
+				</CharacterName>
 			</CharacterHeader>
 			<SheetName>{sheet.name}</SheetName>
 

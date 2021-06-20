@@ -9,15 +9,17 @@ import {
 import {
 	getGlobalTheme,
 	setGlobalTheme,
+	IconButton,
+	TABLET_SIZE,
 	LIGHT_THEME,
 	DIM_THEME,
 	DARK_THEME,
 } from '../global-styles'
 
 const StyledHeader = styled.header`
-	padding: 0.5em 1.5em;
+	padding: 0.5em 0.75rem;
 	font-size: 1.25rem;
-	opacity: 0.4;
+	opacity: 0.7;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -25,7 +27,11 @@ const StyledHeader = styled.header`
 	transition-duration: 0.25s;
 
 	&:hover {
-		opacity: 0.6;
+		opacity: 1;
+	}
+
+	@media (min-width: ${TABLET_SIZE}) {
+		padding: 0.75em 1.5em;
 	}
 `
 
@@ -36,17 +42,9 @@ const ThemeToggleList = styled.div`
 	display: flex;
 	flex-direction: row;
 `
-const ThemeToggle = styled.a.attrs({ href: '#' })`
+const ThemeToggle = styled(IconButton)`
 	margin-left: 0.5em;
-
-	svg{
-		transition-property: fill;
-		transition-duration: 0.25s;
-
-		&:hover {
-			fill: ${getGlobalTheme().linkColor};
-		}
-	}
+	padding: 0.2em;
 `
 
 const AppHeader = () => {
@@ -54,15 +52,18 @@ const AppHeader = () => {
 		<StyledHeader>
 			<HomeLink to="/">Simple Character Sheet</HomeLink>
 			<ThemeToggleList>
-				<ThemeToggle onClick={() => setGlobalTheme(LIGHT_THEME)}>
-					<LightIcon />
-				</ThemeToggle>
-				<ThemeToggle onClick={() => setGlobalTheme(DIM_THEME)}>
-					<DimIcon />
-				</ThemeToggle>
-				<ThemeToggle onClick={() => setGlobalTheme(DARK_THEME)}>
-					<DarkIcon />
-				</ThemeToggle>
+				<ThemeToggle
+					icon={LightIcon}
+					onClick={() => setGlobalTheme(LIGHT_THEME)}
+				/>
+				<ThemeToggle
+					icon={DimIcon}
+					onClick={() => setGlobalTheme(DIM_THEME)}
+				/>
+				<ThemeToggle
+					icon={DarkIcon}
+					onClick={() => setGlobalTheme(DARK_THEME)}
+				/>
 			</ThemeToggleList>
 		</StyledHeader>
 	)
