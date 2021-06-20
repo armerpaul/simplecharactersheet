@@ -38,7 +38,9 @@ export const setGlobalTheme = theme => {
 export const getGlobalTheme = () => {
 	if (!globalTheme) {
 		try {
-			globalTheme = localStorage.getItem(THEME_LS_KEY) || LIGHT_THEME
+			const shouldDefaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+			const defaultTheme = shouldDefaultDark ? DARK_THEME : LIGHT_THEME
+			globalTheme = localStorage.getItem(THEME_LS_KEY) || defaultTheme
 		} catch (e) {
 			console.error(e)
 		}
