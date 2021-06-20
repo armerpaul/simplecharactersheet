@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import * as R from 'ramda'
 
 import BoxesBlock from './boxes-block'
 import ListBlock from './list-block'
