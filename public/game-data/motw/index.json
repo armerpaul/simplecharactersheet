@@ -83,6 +83,7 @@
 				},
 				{
 					"name": "Luck Special",
+					"hideName": true,
 					"description": "*"
 				}
 			]
@@ -97,6 +98,7 @@
 					"optional": true,
 					"hideName": true,
 					"editDescription": "*",
+					"type": "list",
 					"pick": "all",
 					"items": "*"
 				},
@@ -104,6 +106,7 @@
 					"name": "Playbook Moves",
 					"hideName": true,
 					"editDescription": "*",
+					"type": "list",
 					"items": "*"
 				}
 			]

@@ -51,11 +51,16 @@ const hydrateBlock = ({ templateBlock, sheetBlocks, sheetTemplateBlocks }) => {
 	const type = R.prop('type', templateBlock)
 	switch (type) {
 		case 'parent':
-			return hydrateBlock({
+			const children = hydrateBlock({
 				templateBlock: R.prop('children', templateBlock),
 				sheetBlocks,
 				sheetTemplateBlocks
 			})
+			console.log({ children })
+			return {
+				...templateBlock,
+				children,
+			}
 		case 'blocks':
 			return sheetBlocks
 		default:
