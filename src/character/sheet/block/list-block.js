@@ -26,7 +26,7 @@ const Spacer = styled.div`
 `
 
 const ListItem = ({
-	key,
+	name,
 	index,
 	isChecked,
 	isEditing,
@@ -35,32 +35,36 @@ const ListItem = ({
 	value,
 	showAdditionalInfo,
 	additionalInfoValue,
-}) => (isEditing || isChecked) ? (
-	<StyledListItem key={key}>
-		{isEditing && (
-			<CheckboxInput
-				id={key}
-				name={key}
-				checked={isChecked}
-				onChange={() => setItemValue({ index, newValue: !isChecked })}
-			/>
-		)}
-		<ListItemText>
-			<ListItemValue onClick={() => setItemValue({ index, newValue: !isChecked })}>
-				{value && <ReactMarkdown children={value} />}
-				{!isEditing && <ReactMarkdown children={additionalInfoValue} />}
-			</ListItemValue>
-			{isEditing && showAdditionalInfo && isChecked && [
-				<TextInput
-					key="additiona-info"
-					value={typeof additionalInfoValue === 'string' ? additionalInfoValue : ''}
-					onChange={event => setItemValue({ index, newValue: event.target.value })}
-				/>,
-				<Spacer key="spacer" />
-			]}
-		</ListItemText>
-	</StyledListItem>
-) : null
+}) => {
+	const key = `${name} ${index}`
+
+	return (isEditing || isChecked) ? (
+		<StyledListItem key={key}>
+			{isEditing && (
+				<CheckboxInput
+					id={key}
+					name={key}
+					checked={isChecked}
+					onChange={() => setItemValue({ index, newValue: !isChecked })}
+				/>
+			)}
+			<ListItemText>
+				<ListItemValue onClick={() => setItemValue({ index, newValue: !isChecked })}>
+					{value && <ReactMarkdown children={value} />}
+					{!isEditing && <ReactMarkdown children={additionalInfoValue} />}
+				</ListItemValue>
+				{isEditing && showAdditionalInfo && isChecked && [
+					<TextInput
+						key="additiona-info"
+						value={typeof additionalInfoValue === 'string' ? additionalInfoValue : ''}
+						onChange={event => setItemValue({ index, newValue: event.target.value })}
+					/>,
+					<Spacer key="spacer" />
+				]}
+			</ListItemText>
+		</StyledListItem>
+	) : null
+}
 
 const ListBlock = ({
 	name,
@@ -109,13 +113,12 @@ const ListBlock = ({
 			<span key="pick">Pick {pick} {checkCount !== pick && '⚠️'}</span>
 		),
 		...items.map((item, index) => {
-			const key = `${name} ${index}`
 			const additionalInfo = checklist[index]
 			const isChecked = !!additionalInfo
 
 			return (isEditing || isChecked) && (
 				<ListItem
-					key={key}
+					name={name}
 					index={index}
 					isEditing={isEditing}
 					isChecked={isChecked}
@@ -128,7 +131,7 @@ const ListBlock = ({
 		}),
 		showOther && (
 			<ListItem
-				key={`${name} other`}
+				name={name}
 				index={'other'}
 				isEditing={isEditing}
 				isChecked={checklist['other']}

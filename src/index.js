@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './font-styles.css';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
 import { GlobalStyles, AppContainer } from './global-styles'
 import Routes from './app/routes'
 

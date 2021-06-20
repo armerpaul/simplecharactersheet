@@ -46,7 +46,7 @@ const SheetBlock = ({
 	} else {
 		const BlockType = BlockTypes[type]
 		contents = BlockType && (
-			<BlockType path={path} {...otherArgs} />
+			<BlockType key={name} path={path} {...otherArgs} />
 		)
 	}
 
