@@ -56,7 +56,6 @@ const hydrateBlock = ({ templateBlock, sheetBlocks, sheetTemplateBlocks }) => {
 				sheetBlocks,
 				sheetTemplateBlocks
 			})
-			console.log({ children })
 			return {
 				...templateBlock,
 				children,

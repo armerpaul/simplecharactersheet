@@ -1,4 +1,5 @@
 import React from 'react'
+import * as R from 'ramda'
 import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'
 import { CheckboxInput, TextInput } from '../../../global-styles'
@@ -102,19 +103,20 @@ const ListBlock = ({
 		})
 	}
 
-
-
 	if (!isEditing && checkCount === 0) {
 		return null
 	}
 
+	const showPick = isEditing && typeof pick === 'number'
 	return [
-		isEditing && pick && (
+		showPick && (
 			<span key="pick">Pick {pick} {checkCount !== pick && '⚠️'}</span>
 		),
 		...items.map((item, index) => {
-			const additionalInfo = checklist[index]
-			const isChecked = !!additionalInfo
+			const additionalInfo = R.prop(index, checklist)
+			const isChecked = additionalInfo === undefined
+				? pick === 'all'
+				: !!additionalInfo
 
 			return (isEditing || isChecked) && (
 				<ListItem
