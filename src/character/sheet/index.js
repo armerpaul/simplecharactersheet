@@ -30,28 +30,39 @@ const CharacterHeader = styled.div`
 	align-items: stretch;
 	justify-content: space-between;
 	position: sticky;
-	padding: 1.25em 0 0.75em;
+	padding: 0.75em 0 0.75em;
 	border-bottom: 0.15rem solid;
 	background: ${getGlobalTheme().backgroundColor};
 	top: 0;
 	z-index: 1;
+	font-size: 0.75rem;
 
 	@media (min-width: ${TABLET_SIZE}) {
 		flex-direction: row-reverse;
 		align-items: end;
+		padding: 1.25em 0 0.75em;
+		font-size: 1rem;
 	}
 `
 const CharacterName = styled.h1`
 	margin-top: 0;
 	margin-bottom: 0;
+	display: flex;
+	flex-direction: column;
 `
 const CharacterOptions = styled.div`
-	font-size: 1.25rem;
+	font-size: 1.35em;
 	display: flex;
 	justify-content: flex-end;
+	margin-bottom: 0.5em;
 
 	> * {
 		flex: 0 1;
+	}
+
+	@media (min-width: ${TABLET_SIZE}) {
+		font-size: 1.25em;
+		margin-bottom: 0;
 	}
 `
 const SheetName = styled.h5`
