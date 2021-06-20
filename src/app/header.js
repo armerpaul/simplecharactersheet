@@ -7,7 +7,6 @@ import {
 	GiMoonBats as DarkIcon,
 } from "react-icons/gi";
 import {
-	getGlobalTheme,
 	setGlobalTheme,
 	IconButton,
 	TABLET_SIZE,
