@@ -5,6 +5,7 @@ import { getGlobalTheme } from '../../global-styles'
 const StatsContainer = styled.div`
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 `
 
 const CIRCLE_SIZE = '4rem'
@@ -14,7 +15,9 @@ const Stat = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-left: 1.5em;
 	margin-right: 1.5em;
+	margin-bottom: 0.75em;
 `
 
 const StatCircle = styled.div`
@@ -31,6 +34,7 @@ const StatCircle = styled.div`
 
 const StatName = styled.div`
 	font-weight: bold;
+	margin-bottom: 0.25em;
 `
 const StatNumber = styled.span`
 	font-size: 2rem;
