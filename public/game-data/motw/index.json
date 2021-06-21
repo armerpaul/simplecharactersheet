@@ -21,7 +21,9 @@
 		"expert": "The Expert",
 		"flake": "The Flake",
 		"initiate": "The Initiate",
-		"monstrous": "The Monstrous"
+		"monstrous": "The Monstrous",
+		"mundane": "The Mundane",
+		"professional": "The Professional"
 	},
 	"sheetTemplate": [
 		{
