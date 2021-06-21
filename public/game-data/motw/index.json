@@ -21,12 +21,7 @@
 		"expert": "The Expert",
 		"flake": "The Flake",
 		"initiate": "The Initiate",
-		"monstrous": "The Monstrous",
-		"mundane": "The Mundane",
-		"professional": "The Professional",
-		"spellslinger": "The Spell-slinger",
-		"spooky": "The Spooky",
-		"wronged": "The Wronged"
+		"monstrous": "The Monstrous"
 	},
 	"sheetTemplate": [
 		{
