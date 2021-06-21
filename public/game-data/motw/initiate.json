@@ -143,7 +143,7 @@
 		},
 		{
 			"name": "Gear",
-			"editDescription": "If your Sect has fighting arts or obsolete gear (see next page) then pick three old-fashioned weapons. If the Sect has modernised or nifty gadgets, you may pick two modern weapons. Otherwise, pick two old-fashioned weapons and one modern weapon.",
+			"editDescription": "If your Sect has fighting arts or obsolete gear then pick three old-fashioned weapons. If the Sect has modernised or nifty gadgets, you may pick two modern weapons. Otherwise, pick two old-fashioned weapons and one modern weapon.",
 			"type": "parent",
 			"children": [
 				{
