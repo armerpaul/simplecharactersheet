@@ -41,10 +41,10 @@ export const getCharacterData = ({ characterId }) => {
 }
 
 const WILDCARD_SYMBOL = '*'
-const hydrateBlock = ({ templateBlock, sheetBlocks, sheetTemplateBlocks }) => {
+const hydrateBlock = ({ templateBlock, sheetTemplateBlocks }) => {
 	if (Array.isArray(templateBlock)) {
 		return templateBlock.map(
-			b => hydrateBlock({ templateBlock: b, sheetBlocks, sheetTemplateBlocks })
+			b => hydrateBlock({ templateBlock: b, sheetTemplateBlocks })
 		).filter(R.identity)
 	}
 
@@ -53,7 +53,6 @@ const hydrateBlock = ({ templateBlock, sheetBlocks, sheetTemplateBlocks }) => {
 		case 'parent':
 			const children = hydrateBlock({
 				templateBlock: R.prop('children', templateBlock),
-				sheetBlocks,
 				sheetTemplateBlocks
 			})
 			return {
@@ -61,7 +60,7 @@ const hydrateBlock = ({ templateBlock, sheetBlocks, sheetTemplateBlocks }) => {
 				children,
 			}
 		case 'blocks':
-			return sheetBlocks
+			return templateBlock
 		default:
 			const { name, optional } = templateBlock
 			let fullyHydrated = true
@@ -90,13 +89,22 @@ const hydrateBlock = ({ templateBlock, sheetBlocks, sheetTemplateBlocks }) => {
 			return fullyHydrated ? hydratedBlock : undefined
 	}
 }
+const hydrateTemplate = ({ templateBlock, sheetBlocks, sheetTemplateBlocks }) => {
+	const blocks = hydrateBlock({ templateBlock, sheetTemplateBlocks })
+	const [frontBlocks, endBlocks] = R.splitWhen(block => 'blocks' === block.type, blocks)
+	return [
+		...frontBlocks,
+		...sheetBlocks,
+		...endBlocks
+	]
+}
 
 export const getCharacterAndGameData = async ({ gameId, characterId }) => {
 	try {
 		const character = getCharacterData({ characterId })
 		const game = await getGameData({ gameId })
 		const sheet = await getSheetData({ gameId, sheetId: character.sheetId })
-		const blocks = hydrateBlock({
+		const blocks = hydrateTemplate({
 			templateBlock: R.prop('sheetTemplate', game),
 			sheetBlocks: R.prop('blocks', sheet),
 			sheetTemplateBlocks: R.propOr({}, 'templateBlocks', sheet),
