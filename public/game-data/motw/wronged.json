@@ -165,7 +165,7 @@
 							"description": "You were:",
 							"editDescription": "(pick one or more)",
 							"type": "list",
-							"list": [
+							"items": [
 								"at fault",
 								"selfish",
 								"injured",

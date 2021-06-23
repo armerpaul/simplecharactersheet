@@ -61,11 +61,11 @@ const SheetBlock = ({
 					children={`${headerForLevel[parents.length]} ${name}`}
 				/>
 			)}
-			{editDescription && isEditing && (
-				<ReactMarkdown key="editDescription" children={editDescription} />
-			)}
 			{description && (
 				<ReactMarkdown key="description" children={description} />
+			)}
+			{editDescription && isEditing && (
+				<ReactMarkdown key="editDescription" children={editDescription} />
 			)}
 			{contents}
 		</div>

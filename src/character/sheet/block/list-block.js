@@ -88,6 +88,10 @@ const ListBlock = ({
 		0
 	)
 
+	if (!items) {
+		throw new Error(`items not defined for '${name}'`)
+	}
+
 	const setItemValue = ({ index, newValue }) => {
 		if (!isEditing) {
 			return
