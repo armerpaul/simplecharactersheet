@@ -24,7 +24,9 @@
 		"monstrous": "The Monstrous",
 		"mundane": "The Mundane",
 		"professional": "The Professional",
-		"spellslinger": "The Spell-slinger"
+		"spellslinger": "The Spell-slinger",
+		"spooky": "The Spooky",
+		"wronged": "The Wronged"
 	},
 	"sheetTemplate": [
 		{
