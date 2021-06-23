@@ -36,7 +36,7 @@ const CreateCharacter = ({ gameId, gameName, icon, inProgress }) => (
 		<Button
 			disabled={inProgress}
 			icon={inProgress ? UnderConstructionIcon : icon}
-			label={`Create a ${gameName} character`}
+			label={`${inProgress ? `[IN PROGRESS]` : ''} Create a ${gameName} character`}
 		/>
 	</GameLink>
 )
@@ -46,7 +46,7 @@ const AppHome = () => {
 		<StyledAppHome>
 			<About>
 			<p>Welcome to Simple Character Sheet, leveling-up Powered-by-the-Apocalypse playbooks. Don't have a printer around? Everyone only has their phones? Need to add custom moves or add notes? Use Simple Character Sheet to streamline and simplify your table-top gaming.</p>
-			<p>Monster of the Week playbooks are actively getting created. Next up is the custom sheet creator.</p>
+			<p>Monster of the Week playbooks are fully imported! Next up is the custom sheet creator.</p>
 			</About>
 			<GameList>
 				<h3>Create a Character:</h3>
