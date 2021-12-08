@@ -10,7 +10,7 @@ const SheetList = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin-top: 2em;
-	margin-bottom: 3em;
+	margin-bottom: 4em;
 	align-items: flex-start;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -32,6 +32,7 @@ const SheetList = styled.div`
 
 const CreateCharacter = () => {
 	const [gameName, setGameName] = React.useState()
+	const [gameLink, setGameLink] = React.useState()
 	const [sheets, setSheets] = React.useState()
 	const [sheetIcons, setSheetIcons] = React.useState()
 
@@ -40,6 +41,7 @@ const CreateCharacter = () => {
 	React.useEffect(() => {
 		getGameData({ gameId }).then(gameData => {
 			setGameName(gameData.name)
+			setGameLink(gameData.link)
 			setSheets(gameData.sheets)
 			setSheetIcons(gameData.sheetIcons)
 		})
@@ -67,6 +69,14 @@ const CreateCharacter = () => {
 					)
 				})}
 			</SheetList>
+			<p>
+				Support the game creators: <a
+					target="_blank"
+					rel="noreferrer"
+					href={gameLink}>
+						{gameName} product page
+				</a>
+			</p>
 		</CharacterContainer>
 	) : (
 		<LoadingContainer>Loading...</LoadingContainer>
