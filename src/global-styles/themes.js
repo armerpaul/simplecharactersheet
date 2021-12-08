@@ -8,13 +8,14 @@ export const DARK_THEME = 'Bat Night'
 
 const stylesByTheme = {
 	[LIGHT_THEME]: {
-		backgroundColor: new Color('#f6f3ef'),
-		paperColor: new Color('#f6f3ef'),
+		backgroundColor: new Color('#ede7df'),
+		containerColor: new Color('#f6f3ef'),
 		fontColor: new Color('#2e1f22'),
 		linkColor: new Color('#ef3e27')
 	},
 	[DARK_THEME]: {
-		backgroundColor: new Color('#2e1f22'),
+		backgroundColor: new Color('#25191b'),
+		containerColor: new Color('#332225'),
 		fontColor: new Color('#f6f3ef'),
 		linkColor: new Color('#ef3e27')
 	}
@@ -45,7 +46,7 @@ export const getGlobalTheme = () => {
 }
 
 const ThemedStyles = styled.div`
-  background: ${theme => theme.backgroundColor && theme.backgroundColor.darken(0.05)};
+  background: ${theme => theme.backgroundColor};
   color: ${theme => theme.fontColor};
 	min-height: 100vh;
 

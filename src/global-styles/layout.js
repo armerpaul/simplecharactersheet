@@ -10,12 +10,12 @@ export const AppContainer = styled.div`
 	margin-right: auto;
 	margin-top: 6vh;
 	padding: 1rem 1.25rem;
-	background: ${getGlobalTheme().backgroundColor};
+	background: ${getGlobalTheme().containerColor};
 	border: 1px solid ${getGlobalTheme().backgroundColor.darken(0.1)};
 `
 const CardLabel = styled.div`
 	width: 100%;
-	background: ${getGlobalTheme().backgroundColor};
+	background: ${getGlobalTheme().containerColor};
 	font-weight: bold;
 	padding-top: 0.3em;
 	padding-bottom: 0.3em;
@@ -31,7 +31,7 @@ const CardContainer = styled.div`
 	svg {
 		font-size: 3em;
 		margin: 0.2em;
-		color: ${getGlobalTheme().backgroundColor};
+		color: ${getGlobalTheme().containerColor};
 	}
 
 `
