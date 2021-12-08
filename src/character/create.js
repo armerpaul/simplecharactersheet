@@ -14,10 +14,19 @@ const SheetList = styled.div`
 	align-items: flex-start;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	gap: 2em 1em;
+	gap: 1em .5em;
 
 	> * {
-		flex-basis: calc(33% - 1em);
+		min-width: 10em;
+		flex-basis: calc(33% - .5em);
+	}
+
+	@media (min-width: ${TABLET_SIZE}) {
+		gap: 2em 1em;
+
+		> * {
+			flex-basis: calc(25% - 1em);
+		}
 	}
 `
 
