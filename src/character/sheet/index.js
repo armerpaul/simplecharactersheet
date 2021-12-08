@@ -30,9 +30,9 @@ const CharacterHeader = styled.div`
 	align-items: stretch;
 	justify-content: space-between;
 	position: sticky;
-	padding: 0.75em 0 0.75em;
+	padding-bottom: 0.75em;
 	border-bottom: 0.15rem solid;
-	background: ${getGlobalTheme().backgroundColor};
+	background: ${getGlobalTheme().containerColor};
 	top: 0;
 	z-index: 1;
 	font-size: 0.75rem;
@@ -40,8 +40,8 @@ const CharacterHeader = styled.div`
 	@media (min-width: ${TABLET_SIZE}) {
 		flex-direction: row-reverse;
 		align-items: end;
-		padding: 1.25em 0 0.75em;
 		font-size: 1rem;
+		height: 3.6rem;
 	}
 `
 const CharacterName = styled.h1`
