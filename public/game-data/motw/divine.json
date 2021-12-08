@@ -98,7 +98,7 @@
 	"blocks": [
 		{
 			"name": "Gear",
-			"description": "You get divine armour (1-armour holy). It has a look suited to your divine origin. You also get 1 divine weapon:",
+			"description": "You get divine armor (1-armor holy). It has a look suited to your divine origin. You also get 1 divine weapon:",
 			"type": "list",
 			"pick": 1,
 			"items": [

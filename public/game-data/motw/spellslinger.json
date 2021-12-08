@@ -25,7 +25,7 @@
 				"**Go Big or Go Home:** When you must **use magic** as a requirement for Big Magic, take +1 ongoing to those **use magic** rolls.",
 				"**Not My Fault:** +1 to **act under pressure** when you are dealing with the consequences of your own spellcasting.",
 				"**Practitioner:** Choose two effects available to you under use magic. Take +1 to use magic whenever you choose one of those effects.",
-				"**Shield Spell:** When you **protect someone**, gain 2-armour against any harm that is transferred to you. This doesn't stack with your other armour, if any.",
+				"**Shield Spell:** When you **protect someone**, gain 2-armor against any harm that is transferred to you. This doesn't stack with your other armor, if any.",
 				"**Third Eye:** When you **read a bad situation**, you can **open up your third eye** for a moment to take in extra information. Take +1 hold on any result of 7 or more, plus you can see invisible things. On a miss, you may still get 1 hold, but you're exposed to super-natural danger. Unfiltered hidden reality is rough on the mind!"
 			]
 		},
@@ -106,7 +106,7 @@
 								"**Blast:** 2-harm magic close obvious loud",
 								"**Ball:** 1-harm magic area close obvious loud",
 								"**Missile:** 1-harm magic far obvious loud",
-								"**Wall:** 1-harm magic barrier close 1-armour obvious loud"
+								"**Wall:** 1-harm magic barrier close 1-armor obvious loud"
 							]
 						},
 						{
@@ -114,9 +114,9 @@
 							"type": "list",
 							"items": [
 								"**Fire:** Add \"+2 harm fire\" to a base. If you get a 10+ on a combat magic roll, the fire won't spread.",
-								"**Force or Wind:** Add \"+1 harm forceful\" to a base, or \"+1 armour\" to a wall.",
+								"**Force or Wind:** Add \"+1 harm forceful\" to a base, or \"+1 armor\" to a wall.",
 								"**Lightning or Entropy:** Add \"+1 harm messy\" to a base.",
-								"**Frost or Ice:** Adds \"-1 harm +2 armour\" to a wall, or \"+1 harm restraining\" to other bases.",
+								"**Frost or Ice:** Adds \"-1 harm +2 armor\" to a wall, or \"+1 harm restraining\" to other bases.",
 								"**Earth:** Add \"forceful restraining\" to a base.",
 								"**Necromantic:** Add \"life-drain\" to a base."
 							]
@@ -130,7 +130,7 @@
 					"type": "list",
 					"pick": 3,
 					"items": [
-						"**Consumables:** You need certain supplies (powders, oils, etc) on hand, some will be used up each cast. If you don't have them, take 1-harm ignore-armour when you cast.",
+						"**Consumables:** You need certain supplies (powders, oils, etc) on hand, some will be used up each cast. If you don't have them, take 1-harm ignore-armor when you cast.",
 						"**Foci:** You need wands, staves, and other obvious props to focus. If you don't have what you need, your combat magic does 1 less harm.",
 						"**Gestures:** You need to wave your hands around to use combat magic. If you're restrained, take -1 ongoing for combat magic.",
 						"**Incantations:** You must speak in an arcane language to control your magic. If you use combat magic without speaking, act under pressure to avoid scrambling your thoughts."
