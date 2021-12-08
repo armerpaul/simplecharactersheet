@@ -8,9 +8,9 @@ export const DARK_THEME = 'Bat Night'
 
 const stylesByTheme = {
 	[LIGHT_THEME]: {
-		backgroundColor: new Color('hsl(255, 0%, 100%)'),
-		fontColor: new Color('hsl(235, 12.2%, 16.1%)'),
-		linkColor: new Color('hsl(255, 77.1%, 67.5%)')
+		backgroundColor: new Color('#f6f3ef'),
+		fontColor: new Color('#2e1f22'),
+		linkColor: new Color('#ef3e27')
 	},
 	[DIM_THEME]: {
 		backgroundColor: new Color('hsl(255, 15%, 15.7%)'),

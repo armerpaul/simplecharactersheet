@@ -1,0 +1,16 @@
+{
+	"sheetIcons": {
+		"chosen": "SwordAltar",
+		"crooked": "Robber",
+		"divine": "AngelWings",
+		"expert": "SecretBook",
+		"flake": "MeshNetwork",
+		"initiate": "Freemasonry",
+		"monstrous": "FemaleVampire",
+		"mundane": "Hoodie",
+		"professional": "KevlarVest",
+		"spellslinger": "SmokingFinger",
+		"spooky": "WarlockEye",
+		"wronged": "Enrage"
+	}
+}

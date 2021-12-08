@@ -15,14 +15,27 @@ export const createCharacter = ({ gameId, sheetId, name }) => {
 	return character
 }
 
-export const getGameData = ({ gameId }) => axios
-	.get(`/game-data/${gameId}/index.json`)
-	.then(response => {
-		return response.data
-	})
-	.catch(() => {
+export const getGameData = async ({ gameId }) => {
+	try {
+		const gameData = await axios
+			.get(`/game-data/${gameId}/index.json`)
+			.then(response => response.data)
+		const themeData = await axios
+			.get(`/game-data/${gameId}/theme.json`)
+			.then(response => response.data)
+			.catch(() => {
+				console.log(`No theme set for ${gameId}`)
+				return {}
+			})
+		return {
+			...themeData,
+			...gameData,
+		}
+	} catch (e) {
+		console.error(e)
 		throw new Error(`Error loading game data for: ${gameId}`)
-	})
+	}
+}
 
 export const getSheetData = ({ gameId, sheetId }) => axios
 	.get(`/game-data/${gameId}/${sheetId}.json`)

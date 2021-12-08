@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Button, TABLET_SIZE } from '../global-styles'
 import {
-	GiShamblingMound as MotwIcon,
+	GiRaiseZombie as MotwIcon,
+	GiCrownedHeart as TslIcon,
 	GiAnvilImpact as UnderConstructionIcon,
 } from 'react-icons/gi'
 
@@ -36,7 +37,7 @@ const CreateCharacter = ({ gameId, gameName, icon, inProgress }) => (
 		<Button
 			disabled={inProgress}
 			icon={inProgress ? UnderConstructionIcon : icon}
-			label={`${inProgress ? `[IN PROGRESS]` : ''} Create a ${gameName} character`}
+			label={gameName}
 		/>
 	</GameLink>
 )
@@ -51,8 +52,8 @@ const AppHome = () => {
 			<GameList>
 				<h3>Create a Character:</h3>
 				<CreateCharacter gameId="motw" gameName="Monster of the Week" icon={MotwIcon} />
+				<CreateCharacter gameId="tsl" gameName="Thirsty Sword Lesbians" icon={TslIcon} />
 				<CreateCharacter gameId="sprl" gameName="The Sprawl" inProgress={true} />
-				<CreateCharacter gameId="sprl" gameName="Masks" inProgress={true} />
 			</GameList>
 		</StyledAppHome>
 	)
