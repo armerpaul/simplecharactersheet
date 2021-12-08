@@ -137,7 +137,7 @@
 				{
 					"name": "Advances 1",
 					"hideName": true,
-					"description": "When you fill your XP track, you gain an Advance from the list. If you’re playing a single session rather than an ongoing game, you earn an Advance every 3 XP instead of every 5.",
+					"description": "When you fill your XP track, you gain an Advance from the list. If you're playing a single session rather than an ongoing game, you earn an Advance every 3 XP instead of every 5.",
 					"type": "list",
 					"items": [
 						"Take another move from your playbook",
