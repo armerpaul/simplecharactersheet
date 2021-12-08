@@ -35,13 +35,24 @@
 		"Look 1": {
 			"name": "Eyes",
 			"items": [
-				"Sad eyes, icy eyes, angry eyes, untouchable eyes, emotionless eyes, hurt eyes, harrowed"
+				"Sad eyes",
+				"Icy eyes",
+				"Angry eyes",
+				"Untouchable eyes",
+				"Emotionless eyes",
+				"Hurt eyes",
+				"Harrowed"
 			]
 		},
 		"Look 2": {
 			"name": "Wear",
 			"items": [
-				"Nondescript clothes, ragged clothes, casual clothes, hunting gear, army surplus gear, old clothes"
+				"Nondescript clothes",
+				"Ragged clothes",
+				"Casual clothes",
+				"Hunting gear",
+				"Army surplus gear",
+				"Old clothes"
 			]
 		},
 		"History": {
