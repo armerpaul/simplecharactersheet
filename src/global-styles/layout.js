@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { getGlobalTheme } from './themes'
 
 export const TABLET_SIZE = '900px'
 export const DESKTOP_SIZE = '1200px'
@@ -7,7 +8,54 @@ export const AppContainer = styled.div`
 	max-width: 50rem;
 	margin-left: auto;
 	margin-right: auto;
-	padding-top: 6vh;
-	padding-left: 0.75rem;
-	padding-right: 0.75rem;
+	margin-top: 6vh;
+	padding: 1rem 1.25rem;
+	background: ${getGlobalTheme().backgroundColor};
+	border: 1px solid ${getGlobalTheme().backgroundColor.darken(0.1)};
 `
+const CardLabel = styled.div`
+	width: 100%;
+	background: ${getGlobalTheme().backgroundColor};
+	font-weight: bold;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+`
+const CardContainer = styled.div`
+	cursor: pointer;
+	color: ${getGlobalTheme().fontColor};
+	background: ${getGlobalTheme().fontColor};
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	svg {
+		font-size: 3em;
+		margin: 0.2em;
+		color: ${getGlobalTheme().backgroundColor};
+	}
+
+`
+const ActiveCardContainer = styled(CardContainer)`
+	&:hover {
+		background: ${getGlobalTheme().linkColor};
+		color: ${getGlobalTheme().linkColor};
+	}
+`
+const DisabledCardContainer = styled(CardContainer)`
+	color: ${getGlobalTheme().fontColor.mix(getGlobalTheme().backgroundColor)};
+	background: ${getGlobalTheme().fontColor.mix(getGlobalTheme().backgroundColor)};
+	cursor: default;
+`
+
+export const Card = ({ key, onClick, icon: Icon, label, isDisabled }) =>
+	isDisabled ? (
+		<DisabledCardContainer key={key}>
+			<Icon />
+			<CardLabel>{label}</CardLabel>
+		</DisabledCardContainer>
+	) : (
+		<ActiveCardContainer key={key} onClick={onClick}>
+			<Icon />
+			<CardLabel>{label}</CardLabel>
+		</ActiveCardContainer>
+	)

@@ -3,49 +3,22 @@ import styled from 'styled-components'
 import { useParams, useHistory } from 'react-router-dom'
 import { getGameData, createCharacter } from './data-store'
 import { CharacterContainer, LoadingContainer } from './styles'
-import { getGlobalTheme, TABLET_SIZE } from '../global-styles'
+import { Card, TABLET_SIZE } from '../global-styles'
 import * as GameIcons from 'react-icons/gi'
 
 const SheetList = styled.div`
 	display: flex;
 	flex-direction: row;
-	margin-bottom: 1em;
+	margin-top: 2em;
+	margin-bottom: 3em;
 	align-items: flex-start;
 	flex-wrap: wrap;
-	justify-content: center;
-`
-const SheetButton = styled.div`
-	margin-bottom: 0.25em;
-	flex-basis: calc(33% - 1em);
-	min-width: 10em;
-	margin: 0.5em;
-	cursor: pointer;
-	background: ${getGlobalTheme().fontColor};
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	justify-content: space-between;
+	gap: 2em 1em;
 
-	@media (min-width: ${TABLET_SIZE}) {
-		flex-basis: calc(25% - 1em);
+	> * {
+		flex-basis: calc(33% - 1em);
 	}
-
-	svg {
-		font-size: 3em;
-		margin: 0.2em;
-		color: ${getGlobalTheme().backgroundColor};
-	}
-
-	&:hover {
-		background: ${getGlobalTheme().linkColor};
-		color: ${getGlobalTheme().linkColor};
-	}
-`
-const SheetButtonLabel = styled.div`
-	width: 100%;
-	background: ${getGlobalTheme().backgroundColor};
-	font-weight: bold;
-	padding-top: 0.3em;
-	padding-bottom: 0.3em;
 `
 
 const CreateCharacter = () => {
@@ -70,17 +43,18 @@ const CreateCharacter = () => {
 
 	return sheets ? (
 		<CharacterContainer>
-			<h1>Create a character</h1>
-			<h3>Pick a sheet to create a {gameName} character:</h3>
+			<h2>Create a {gameName} character</h2>
 			<SheetList>
 				{Object.keys(sheets).map(sheetId => {
 					const iconKey = `Gi${sheetIcons ? sheetIcons[sheetId] : 'IdCard'}`
 					const SheetIcon = GameIcons[iconKey]
 					return (
-						<SheetButton key={sheetId} onClick={() => createCharacterAndGoToSheet(sheetId)}>
-							<SheetIcon />
-							<SheetButtonLabel>{sheets[sheetId]}</SheetButtonLabel>
-						</SheetButton>
+						<Card
+							key={sheetId}
+							onClick={() => createCharacterAndGoToSheet(sheetId)}
+							icon={SheetIcon}
+							label={sheets[sheetId]}
+						/>
 					)
 				})}
 			</SheetList>

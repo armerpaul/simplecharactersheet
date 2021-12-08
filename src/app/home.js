@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Button, TABLET_SIZE } from '../global-styles'
+import { Card, TABLET_SIZE } from '../global-styles'
 import {
 	GiRaiseZombie as MotwIcon,
 	GiCrownedHeart as TslIcon,
@@ -11,50 +11,52 @@ import {
 const StyledAppHome = styled.div`
 	display: flex;
 	flex-direction: column;
-	padding-top: 10vh;
 
 	@media (min-width: ${TABLET_SIZE}) {
-		flex-direction: row;
+		// flex-direction: row;
 	}
-`
-
-const About = styled.div`
-	flex: 1 1 40%;
-	padding-right: 3em;
 `
 const GameList = styled.div`
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: stretch;
-	font-size: 1.15em;
-`
-const GameLink = styled(Link)`
-	margin-bottom: 1em;
+	gap: 1em;
+	margin-bottom: 2em;
+
+	> * {
+		flex-basis: calc(33% - 1em);
+
+	}
 `
 
 const CreateCharacter = ({ gameId, gameName, icon, inProgress }) => (
-	<GameLink to={`/${gameId}/new`}>
-		<Button
-			disabled={inProgress}
-			icon={inProgress ? UnderConstructionIcon : icon}
+	<Link to={`/${gameId}/new`}>
+		<Card
+			key={gameId}
 			label={gameName}
+			icon={inProgress ? UnderConstructionIcon : icon}
 		/>
-	</GameLink>
+	</Link>
 )
 
 const AppHome = () => {
 	return (
 		<StyledAppHome>
-			<About>
-			<p>Welcome to Simple Character Sheet, leveling-up Powered-by-the-Apocalypse playbooks. Don't have a printer around? Everyone only has their phones? Need to add custom moves or add notes? Use Simple Character Sheet to streamline and simplify your table-top gaming.</p>
-			<p>Monster of the Week playbooks are fully imported! Next up is the custom sheet creator.</p>
-			</About>
+				<p>Simple Character Sheets is an app for creating character sheets for indie games. Select a game below to get started:</p>
+
 			<GameList>
-				<h3>Create a Character:</h3>
 				<CreateCharacter gameId="motw" gameName="Monster of the Week" icon={MotwIcon} />
 				<CreateCharacter gameId="tsl" gameName="Thirsty Sword Lesbians" icon={TslIcon} />
-				<CreateCharacter gameId="sprl" gameName="The Sprawl" inProgress={true} />
+				<Card
+					isDisabled={true}
+					key="UnderConstruction"
+					label="More coming soon"
+					icon={UnderConstructionIcon}
+				/>
 			</GameList>
+			<p>Don't have a printer around? Everyone only has their phones? Need to add custom moves or add notes? Use Simple Character Sheet to streamline and simplify your table-top gaming.</p>
+
 		</StyledAppHome>
 	)
 }

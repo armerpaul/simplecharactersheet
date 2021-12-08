@@ -9,18 +9,14 @@ export const DARK_THEME = 'Bat Night'
 const stylesByTheme = {
 	[LIGHT_THEME]: {
 		backgroundColor: new Color('#f6f3ef'),
+		paperColor: new Color('#f6f3ef'),
 		fontColor: new Color('#2e1f22'),
 		linkColor: new Color('#ef3e27')
 	},
-	[DIM_THEME]: {
-		backgroundColor: new Color('hsl(255, 15%, 15.7%)'),
-		fontColor: new Color('hsl(235, 18.8%, 72.9%)'),
-		linkColor: new Color('hsl(255, 77.1%, 67.5%)')
-	},
 	[DARK_THEME]: {
-		backgroundColor: new Color('hsl(255, 15%, 7.1%)'),
-		fontColor: new Color('hsl(235, 17.4%, 82%)'),
-		linkColor: new Color('hsl(255, 50%, 50%)')
+		backgroundColor: new Color('#2e1f22'),
+		fontColor: new Color('#f6f3ef'),
+		linkColor: new Color('#ef3e27')
 	}
 }
 
@@ -49,7 +45,7 @@ export const getGlobalTheme = () => {
 }
 
 const ThemedStyles = styled.div`
-  background: ${theme => theme.backgroundColor};
+  background: ${theme => theme.backgroundColor && theme.backgroundColor.darken(0.05)};
   color: ${theme => theme.fontColor};
 	min-height: 100vh;
 
@@ -58,6 +54,7 @@ const ThemedStyles = styled.div`
 	}
 
 	h2 {
+		margin-top: 0.25em;
 		margin-bottom: 0.5em;
 	}
 

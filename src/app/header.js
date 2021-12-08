@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import {
 	GiSun as LightIcon,
-	GiWitchFlight as DimIcon,
 	GiMoonBats as DarkIcon,
 } from "react-icons/gi";
 import {
@@ -11,7 +10,6 @@ import {
 	IconButton,
 	TABLET_SIZE,
 	LIGHT_THEME,
-	DIM_THEME,
 	DARK_THEME,
 } from '../global-styles'
 
@@ -54,10 +52,6 @@ const AppHeader = () => {
 				<ThemeToggle
 					icon={LightIcon}
 					onClick={() => setGlobalTheme(LIGHT_THEME)}
-				/>
-				<ThemeToggle
-					icon={DimIcon}
-					onClick={() => setGlobalTheme(DIM_THEME)}
 				/>
 				<ThemeToggle
 					icon={DarkIcon}
