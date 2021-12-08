@@ -91,14 +91,14 @@
 				"Mark another two of the basic moves as advanced.",
 				"Retire this hunter to safety.",
 				"Erase one used Luck mark from your playbook.",
-				"Change your mission. Select a different mission from the normal options, or (with the Keeper’s agreement) a new mission of your creation."
+				"Change your mission. Select a different mission from the normal options, or (with the Keeper's agreement) a new mission of your creation."
 			]
 		}
 	},
 	"blocks": [
 		{
 			"name": "Gear",
-			"description": "You get divine armour (1-armour holy). It has a look suited to your divine origin. You also get 1 divine weapon:",
+			"description": "You get divine armor (1-armor holy). It has a look suited to your divine origin. You also get 1 divine weapon:",
 			"type": "list",
 			"pick": 1,
 			"items": [

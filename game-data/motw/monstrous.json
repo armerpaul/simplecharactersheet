@@ -113,7 +113,7 @@
 					"name": "Examples",
 					"hideName": true,
 					"type": "text",
-					"editDescription": "Create the monster you want to be: whatever you choose defines your breed in the game. Some classic monsters with suggestions for picks are listed below. These are only suggestions: feel free to make a different version!\n\n* **Vampire:** Curse: feed (blood or life-force). Natural attacks: Base: life-drain or Base: teeth; add +1 harm to base attack. Moves: immortal or unquenchable vitality; mental domination.\n* **Werewolf:** Curse: vulnerability (silver). Natural attacks: Base: claws; Base: teeth. Moves: shapeshifter (wolf and/or wolfman); claws of the beast or unholy strength.\n* **Ghost:** Curse: vulnerability (rock salt). Natural attacks: Base: magical force; add hand range to magical force. Moves: incorporeal; immortal.\n* **Faerie:** Curse: pure drive (joy). Natural attacks: Base: magical force; add ignore-armour to magical force. Moves: flight; preternatural speed.\n* **Demon:** Curse: pure drive (cruelty). Natural attacks: Base: claws; +1 harm to claws. Moves: dark negotiator; unquenchable vitality.\n* **Orc:** Curse: dark master (the orc overlord). Natural attacks: Base: teeth; add ignore-armour to teeth. Moves: Unholy strength; dark negotiator.\n* **Zombie:** Curse: pure drive (hunger), feed (flesh or brains). Natural attacks: Base: teeth; +1 harm to teeth. Moves: immortal; unquenchable vitality."
+					"editDescription": "Create the monster you want to be: whatever you choose defines your breed in the game. Some classic monsters with suggestions for picks are listed below. These are only suggestions: feel free to make a different version!\n\n* **Vampire:** Curse: feed (blood or life-force). Natural attacks: Base: life-drain or Base: teeth; add +1 harm to base attack. Moves: immortal or unquenchable vitality; mental domination.\n* **Werewolf:** Curse: vulnerability (silver). Natural attacks: Base: claws; Base: teeth. Moves: shapeshifter (wolf and/or wolfman); claws of the beast or unholy strength.\n* **Ghost:** Curse: vulnerability (rock salt). Natural attacks: Base: magical force; add hand range to magical force. Moves: incorporeal; immortal.\n* **Faerie:** Curse: pure drive (joy). Natural attacks: Base: magical force; add ignore-armor to magical force. Moves: flight; preternatural speed.\n* **Demon:** Curse: pure drive (cruelty). Natural attacks: Base: claws; +1 harm to claws. Moves: dark negotiator; unquenchable vitality.\n* **Orc:** Curse: dark master (the orc overlord). Natural attacks: Base: teeth; add ignore-armor to teeth. Moves: Unholy strength; dark negotiator.\n* **Zombie:** Curse: pure drive (hunger), feed (flesh or brains). Natural attacks: Base: teeth; +1 harm to teeth. Moves: immortal; unquenchable vitality."
 				},
 				{
 					"name": "Curses",
@@ -136,7 +136,7 @@
 						"Base: magical force (1-harm magical close)",
 						"Base: life-drain (1-harm intimate life-drain)",
 						"Extra: Add +1 harm to a base",
-						"Extra: Add ignore-armour to a base",
+						"Extra: Add ignore-armor to a base",
 						"Extra: Add an extra range to a base (add intimate, hand, or close)."
 					]
 				}
