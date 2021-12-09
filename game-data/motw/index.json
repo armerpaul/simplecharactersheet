@@ -74,6 +74,7 @@
 			"children": [
 				{
 					"name": "Luck boxes",
+					"hideName": true,
 					"description": "Mark luck to change a roll to 12 or avoid all harm from an injury.",
 					"type": "boxes",
 					"count": 7,

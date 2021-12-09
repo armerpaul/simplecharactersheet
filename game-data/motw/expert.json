@@ -15,6 +15,7 @@
 			"description": "**Expert special:** When you spend a point of Luck, you discover something happening now is related to something you were involved in years ago."
 		},
 		"Playbook Moves": {
+			"editDescription": "You get all of the basic moves, plus pick two Expert moves:",
 			"items": [
 				"**I've Read About This Sort Of Thing:** Roll +Sharp instead of +Cool when you **act under pressure**.",
 				"**Often Right:** When **a hunter comes to you for advice** about a problem, give them your honest opinion and advice. If they take your advice, they get +1 ongoing while following your advice, and you mark experience.",
