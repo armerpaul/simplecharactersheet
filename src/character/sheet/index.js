@@ -20,6 +20,7 @@ import {
 	GiTinker as EditIcon,
 	GiCheckMark as SaveIcon,
 } from 'react-icons/gi'
+import ReactMarkdown from 'react-markdown'
 
 const ErrorContainer = styled(CharacterContainer)`
 	color: red;
@@ -56,8 +57,7 @@ const SheetName = styled.div`
 	margin-top: 0.5em;
 `
 const SheetDescription = styled.div`
-	margin-top: 1.5em;
-	margin-bottom: 1.5em;
+	margin-bottom: 1em;
 	font-style: italic;
 `
 
@@ -156,7 +156,7 @@ const CharacterSheet = () => {
 			</SheetName>
 
 			<SheetDescription>
-				<p>{sheet.description}</p>
+				<ReactMarkdown>{sheet.description}</ReactMarkdown>
 			</SheetDescription>
 
 			<Stats {...game.stats} isEditing={isEditing} />

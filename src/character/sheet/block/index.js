@@ -12,8 +12,8 @@ const BlockTypes = {
 const headerForLevel = {
 	0: '##',
 	1: '###',
-	2: '####',
-	3: '#####',
+	2: '###',
+	3: '####',
 }
 
 const SheetBlock = ({

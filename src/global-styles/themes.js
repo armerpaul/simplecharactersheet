@@ -63,20 +63,20 @@ const ThemedStyles = styled.div`
 	}
 
 	h2 {
-		font-size: 1.25rem;
-		margin-top: 0.25em;
-		margin-bottom: 0.5em;
+		font-size: 1.35rem;
+		margin-top: 1em;
+		margin-bottom: 0.25em;
 	}
 
 	h3 {
-		font-size: 1rem;
-		margin-top: 0.25em;
+		font-size: 1.1rem;
+		margin-top: 0.75em;
 		margin-bottom: 0.25em;
 	}
 
 	h4 {
 		font-size: 1rem;
-		margin-top: 0.25em;
+		margin-top: 0.5em;
 		margin-bottom: 0.25em;
 	}
 

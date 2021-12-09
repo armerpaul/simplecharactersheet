@@ -6,6 +6,7 @@ const StatsContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	margin: 2rem 0;
 `
 
 const CIRCLE_SIZE = '4rem'
