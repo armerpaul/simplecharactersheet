@@ -8,10 +8,14 @@ export const AppContainer = styled.div`
 	max-width: 50rem;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 6vh;
-	padding: 1rem 1.25rem;
+	padding: 0.6rem;
 	background: ${getGlobalTheme().containerColor};
 	border: 1px solid ${getGlobalTheme().backgroundColor.darken(0.1)};
+
+	@media (min-width: ${TABLET_SIZE}) {
+		margin-top: 6vh;
+		padding: 1rem 1.25rem;
+	}
 `
 const CardLabel = styled.div`
 	width: 100%;

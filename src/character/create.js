@@ -54,7 +54,7 @@ const CreateCharacter = () => {
 
 	return sheets ? (
 		<CharacterContainer>
-			<h2>Create a {gameName} character</h2>
+			<p>Select a {gameName} playbook:</p>
 			<SheetList>
 				{Object.keys(sheets).map(sheetId => {
 					const iconKey = `Gi${sheetIcons ? sheetIcons[sheetId] : 'IdCard'}`

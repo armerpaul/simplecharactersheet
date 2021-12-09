@@ -12,8 +12,9 @@ export const LoadingContainer = styled.div`
 	animation-direction: alternate;
 
 	text-align: center;
-	padding: 20vh;
+	padding: 20vh 0;
 	font-size: 2rem;
+	width: 100%;
 `
 
 export const CharacterContainer = styled.div`

@@ -5,23 +5,27 @@ import { GiCheckMark as CheckedIcon } from 'react-icons/gi'
 
 const inputColorStyles = `
 	color: ${getGlobalTheme().fontColor};
-	border: 0.1em solid ${getGlobalTheme().fontColor};
+	border: 0.15rem solid ${getGlobalTheme().fontColor};
 	background-color: ${
-		getGlobalTheme().backgroundColor.mix(getGlobalTheme().fontColor, 0.1)
+		getGlobalTheme().backgroundColor.mix(getGlobalTheme().fontColor, 0.05)
 	};
 
 	transition-property: border-color background-color;
 	transition-duration: 0.25s;
 
 	&:active, &:focus, &:hover {
-		border-color: ${
-			getGlobalTheme().linkColor.mix(getGlobalTheme().fontColor, 0.2)
-		}
+		border-color: ${getGlobalTheme().fontColor}
+	}
+
+	&:hover {
+		background-color: ${
+			getGlobalTheme().backgroundColor.mix(getGlobalTheme().fontColor, 0.1)
+		};
 	}
 
 	&:active, &:focus {
 		background-color: ${
-			getGlobalTheme().backgroundColor.mix(getGlobalTheme().fontColor, 0.075)
+			getGlobalTheme().backgroundColor.mix(getGlobalTheme().fontColor, 0.15)
 		};
 	}
 `
@@ -48,7 +52,12 @@ export const TextInput = styled(BaseInput).attrs({ type: 'text' })`
 	border-left: none;
 	border-top: none;
 	border-right: none;
+	border-bottom-color: transparent;
 	padding: 0.3em 0.5em 0.2em;
+
+	&:focus {
+		border-bottom-color: ${getGlobalTheme().linkColor};
+	}
 `
 
 const StyledCheckboxInput = styled.div`

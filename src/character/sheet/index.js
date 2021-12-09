@@ -18,7 +18,7 @@ import {
 } from '../../global-styles'
 import {
 	GiTinker as EditIcon,
-	GiThumbUp as SaveIcon,
+	GiCheckMark as SaveIcon,
 } from 'react-icons/gi'
 
 const ErrorContainer = styled(CharacterContainer)`
@@ -26,7 +26,7 @@ const ErrorContainer = styled(CharacterContainer)`
 `
 const CharacterHeader = styled.div`
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: stretch;
 	justify-content: space-between;
 	position: sticky;
@@ -38,8 +38,6 @@ const CharacterHeader = styled.div`
 	font-size: 0.75rem;
 
 	@media (min-width: ${TABLET_SIZE}) {
-		flex-direction: row-reverse;
-		align-items: end;
 		font-size: 1rem;
 		height: 3.6rem;
 	}
@@ -133,9 +131,17 @@ const CharacterSheet = () => {
 	return (
 		<CharacterContainer>
 			<CharacterHeader>
+				<CharacterName>
+					{isEditing ? (
+						<TextInput
+							value={character.name}
+							onChange={event => updateCharacter({ path: ['name'], value: event.target.value })}
+						/>
+					) : character.name}
+				</CharacterName>
 				<CharacterOptions>
 					{isEditing ? (
-						<Button
+						<IconButton
 							icon={SaveIcon}
 							label="Save"
 							onClick={() => {
@@ -151,14 +157,6 @@ const CharacterSheet = () => {
 						/>
 					)}
 				</CharacterOptions>
-				<CharacterName>
-					{isEditing ? (
-						<TextInput
-							value={character.name}
-							onChange={event => updateCharacter({ path: ['name'], value: event.target.value })}
-						/>
-					) : character.name}
-				</CharacterName>
 			</CharacterHeader>
 			<SheetName>{sheet.name}</SheetName>
 

@@ -11,10 +11,6 @@ import {
 const StyledAppHome = styled.div`
 	display: flex;
 	flex-direction: column;
-
-	@media (min-width: ${TABLET_SIZE}) {
-		// flex-direction: row;
-	}
 `
 const GameList = styled.div`
 	display: flex;
@@ -25,8 +21,11 @@ const GameList = styled.div`
 	margin-bottom: 2em;
 
 	> * {
-		flex-basis: calc(33% - 1em);
+		flex-basis: calc(50% - 1em);
 
+		@media (min-width: ${TABLET_SIZE}) {
+			flex-basis: calc(33% - 1em);
+		}
 	}
 `
 
