@@ -8,12 +8,14 @@ export const DARK_THEME = 'Bat Night'
 
 const stylesByTheme = {
 	[LIGHT_THEME]: {
+		name: LIGHT_THEME,
 		backgroundColor: new Color('#ede7df'),
 		containerColor: new Color('#f6f3ef'),
 		fontColor: new Color('#2e1f22'),
 		linkColor: new Color('#ef3e27')
 	},
 	[DARK_THEME]: {
+		name: DARK_THEME,
 		backgroundColor: new Color('#25191b'),
 		containerColor: new Color('#332225'),
 		fontColor: new Color('#f6f3ef'),

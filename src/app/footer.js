@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import ThemePicker from './theme-picker'
 
 const StyledFooter = styled.div`
 	text-align: center;
-	padding: 20vh 1em 5vh;
+	padding: 10vh 1em 5vh;
 	display: flex;
 	flex-direction: column;
 `
@@ -22,7 +21,6 @@ const AppHeader = () => {
 					rel="noreferrer"
 				>Paul Armer</a>
 			</ByLine>
-			<ThemePicker />
 		</StyledFooter>
 	)
 }

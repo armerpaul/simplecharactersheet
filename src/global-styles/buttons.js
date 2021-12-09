@@ -3,22 +3,36 @@ import styled from 'styled-components'
 import { getGlobalTheme } from './themes'
 
 const BaseButton = styled.button`
+	background: ${getGlobalTheme().fontColor};
+	color: ${getGlobalTheme().containerColor};
 	width: 100%;
 	text-align: center;
-	padding: 0.3em 0.75em;
+	padding: 0.5em;
 	margin: 0;
 	font-size: inherit;
 	cursor: pointer;
 	outline: 0 solid;
 	border: 0 solid;
-	border-radius: 0.15em;
+	border-radius: 0;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	transition-property: background opacity;
+	transition-duration: 0.25s;
 
 	* {
 		text-decoration: none;
+	}
+
+	&:not(:disabled) {
+		&:hover, &:focus {
+			background: ${getGlobalTheme().linkColor};
+		}
+
+		&:active {
+			color: ${getGlobalTheme().fontColor};
+		}
 	}
 
 	&:disabled {
@@ -27,65 +41,34 @@ const BaseButton = styled.button`
 		cursor: not-allowed;
 	}
 `
-
 const ButtonText = styled.span`
 	margin-left: 0.2em;
 	font-weight: bold;
 `
-const StyledButton = styled(BaseButton)`
-	background: ${getGlobalTheme().linkColor};
-	color: ${getGlobalTheme().backgroundColor};
-	transition-property: background opacity;
-	transition-duration: 0.25s;
-
-	&:not(:disabled) {
-		&:hover, &:focus {
-			background: ${getGlobalTheme().linkColor.mix(getGlobalTheme().fontColor)};
-		}
-
-		&:active {
-			background: ${getGlobalTheme().fontColor};
-		}
-	}
-
-
-	svg {
-		font-size: 1.75em
-	}
-`
 export const Button = ({ icon: Icon, label, ...props}) => (
-	<StyledButton {...props}>
+	<BaseButton {...props}>
 		<Icon /><ButtonText>{label}</ButtonText>
-	</StyledButton>
+	</BaseButton>
 )
 
 const Hidden = styled.span`
 	display: none;
 `
 const StyledIconButton = styled(BaseButton)`
-	background: none;
+	font-size: 1.15em;
 
 	svg{
-		fill: ${getGlobalTheme().linkColor};
+		fill: ${getGlobalTheme().containerColor};
 		transition-property: fill;
 		transition-duration: 0.25s;
 	}
 
 	&:not(:disabled) {
-		&:hover, &:focus {
+		&:focus, &:active {
 			svg {
-				fill: ${getGlobalTheme().linkColor.mix(getGlobalTheme().fontColor)};
+				fill: ${getGlobalTheme().fontColor};
 			}
 		}
-
-		&:active svg {
-			fill: ${getGlobalTheme().fontColor};
-		}
-	}
-
-
-	&:hover svg {
-		fill: ${getGlobalTheme().linkColor};
 	}
 `
 export const IconButton = ({ icon: Icon, label, ...props }) => (

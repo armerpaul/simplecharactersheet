@@ -8,6 +8,7 @@ import Routes from './app/routes'
 
 import AppHeader from './app/header'
 import AppFooter from './app/footer'
+import ThemePicker from './app/theme-picker'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
         <AppContainer>
           <Routes />
         </AppContainer>
+        <ThemePicker />
         <AppFooter />
       </Router>
     </GlobalStyles>

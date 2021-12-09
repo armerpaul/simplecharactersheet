@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import ThemePicker from './theme-picker'
 import { TABLET_SIZE } from '../global-styles'
 
 const StyledHeader = styled.header`
@@ -31,7 +30,6 @@ const AppHeader = () => {
 	return (
 		<StyledHeader>
 			<HomeLink to="/">Simple Character Sheet</HomeLink>
-			<ThemePicker />
 		</StyledHeader>
 	)
 }
