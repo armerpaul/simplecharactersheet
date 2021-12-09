@@ -51,14 +51,14 @@ const DisabledCardContainer = styled(CardContainer)`
 	cursor: default;
 `
 
-export const Card = ({ key, onClick, icon: Icon, label, isDisabled }) =>
+export const Card = ({ onClick, icon: Icon, label, isDisabled }) =>
 	isDisabled ? (
-		<DisabledCardContainer key={key}>
+		<DisabledCardContainer>
 			<Icon />
 			<CardLabel>{label}</CardLabel>
 		</DisabledCardContainer>
 	) : (
-		<ActiveCardContainer key={key} onClick={onClick}>
+		<ActiveCardContainer onClick={onClick}>
 			<Icon />
 			<CardLabel>{label}</CardLabel>
 		</ActiveCardContainer>

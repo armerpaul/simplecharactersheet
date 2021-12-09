@@ -10,7 +10,6 @@ import {
 import { LoadingContainer, CharacterContainer } from '../styles'
 import { useParams } from 'react-router-dom'
 import {
-	Button,
 	IconButton,
 	TextInput,
 	getGlobalTheme,

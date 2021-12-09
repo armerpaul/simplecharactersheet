@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Card, TABLET_SIZE } from '../global-styles'
 import {
 	GiRaiseZombie as MotwIcon,
-	GiCrownedHeart as TslIcon,
+	GiDaggerRose as TslIcon,
 	GiAnvilImpact as UnderConstructionIcon,
 } from 'react-icons/gi'
 

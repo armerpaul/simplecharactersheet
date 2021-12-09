@@ -1,3 +1,13 @@
 {
-	"sheetIcons": {}
+	"sheetIcons": {
+		"beast": "LoveHowl",
+		"chosen": "CrownedHeart",
+		"devoted": "ChainedHeart",
+		"infamous": "BleedingHeart",
+		"nature": "PawHeart",
+		"scoundrel": "CupidonArrow",
+		"seeker": "LifeInTheBalance",
+		"spooky": "HeartBattery",
+		"trickster": "LockedHeart"
+	}
 }

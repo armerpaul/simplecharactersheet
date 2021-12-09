@@ -56,20 +56,23 @@
 			"type": "parent",
 			"children": [
 				{
-					"name": "*",
-					"description": "",
+					"name": "Truths of Heart",
+					"description": "When you become **Smitten** with someone, say why, give them a String, and answer this question:",
 					"type": "list",
 					"pick": 1,
 					"items": "*"
 				},
 				{
-					"name": "*",
-					"description": "",
+					"name": "Truths of Blade",
+					"description": "When you **Figure Out a Person** in physical conflict, you may additionally ask one of these questions, even on a 6-:",
 					"type": "list",
 					"pick": 2,
 					"items": "*"
 				}
 			]
+		},
+		{
+			"type": "blocks"
 		},
 		{
 			"name": "Moves",
@@ -87,14 +90,11 @@
 				{
 					"name": "Playbook Moves",
 					"hideName": true,
-					"editDescription": "*",
+					"editDescription": "Start with the default move above, and choose two more:",
 					"type": "list",
 					"items": "*"
 				}
 			]
-		},
-		{
-			"type": "blocks"
 		},
 		{
 			"name": "Aesthetics",
@@ -102,6 +102,7 @@
 			"children": [
 				{
 					"name": "Look 1",
+					"hideName": true,
 					"type": "list",
 					"pick": 1,
 					"items": "*",
@@ -109,6 +110,7 @@
 				},
 				{
 					"name": "Look 2",
+					"hideName": true,
 					"type": "list",
 					"pick": 1,
 					"items": "*",
@@ -116,6 +118,7 @@
 				},
 				{
 					"name": "Look 3",
+					"hideName": true,
 					"optional": true,
 					"type": "list",
 					"pick": 1,
@@ -125,8 +128,8 @@
 			]
 		},
 		{
-			"name": "History",
-			"editDescription": "Go around the group. On your turn, pick one of these for each other hunter",
+			"name": "Relationships",
+			"editDescription": "Use the following questions to propose relationships with the other characters. This is a collaborative process and both players must agree to the relationship. Then give the player 0, 1, or 2 Strings, depending on how much emotional sway the other character holds with yours.",
 			"type": "list",
 			"items": "*",
 			"showItemAdditionalInfo": true
@@ -138,7 +141,7 @@
 				{
 					"name": "Advances 1",
 					"hideName": true,
-					"description": "When you fill your XP track, you gain an Advance from the list. If you're playing a single session rather than an ongoing game, you earn an Advance every 3 XP instead of every 5.",
+					"editDescription": "When you fill your XP track, you gain an Advance from the list. If you're playing a single session rather than an ongoing game, you earn an Advance every 3 XP instead of every 5.",
 					"type": "list",
 					"items": [
 						"Take another move from your playbook",
@@ -152,7 +155,7 @@
 				{
 					"name": "Advances 2",
 					"hideName": true,
-					"description": "After you take your fifth Advance, you can choose to switch to  another  playbook  or  live  happily  ever after. Choose one of these last two options when the emotional conflict at the core of your playbook has been resolved or eclipsed by a new conflict corresponding to a new playbook.",
+					"editDescription": "After you take your fifth Advance, you can choose to switch to  another  playbook  or  live  happily  ever after. Choose one of these last two options when the emotional conflict at the core of your playbook has been resolved or eclipsed by a new conflict corresponding to a new playbook.",
 					"type": "list",
 					"items": [
 						"Switch to a new playbook",
