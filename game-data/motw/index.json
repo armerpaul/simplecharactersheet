@@ -151,13 +151,13 @@
 		},
 		{
 			"name": "Improvements",
-			"description": "When you have filled all five experience boxes, you level up. Erase the marks and pick an improvement from the following list:",
+			"editDescription": "When you have filled all five experience boxes, you level up. Erase the marks and pick an improvement from the following list:",
 			"type": "list",
 			"items": "*"
 		},
 		{
 			"name": "Advanced Improvements",
-			"description": "After you have leveled up five times, you qualify for advanced improvements below:",
+			"editDescription": "After you have leveled up five times, you qualify for advanced improvements below:",
 			"type": "list",
 			"items": "*"
 		}
