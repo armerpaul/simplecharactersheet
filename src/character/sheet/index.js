@@ -35,11 +35,12 @@ const CharacterHeader = styled.div`
 	background: ${getGlobalTheme().containerColor};
 	top: 0;
 	z-index: 1;
+	align-items: end;
 	font-size: 0.75rem;
 
 	@media (min-width: ${TABLET_SIZE}) {
 		font-size: 1rem;
-		height: 3.6rem;
+		height: 3rem;
 	}
 `
 const CharacterName = styled.h1`
@@ -47,25 +48,18 @@ const CharacterName = styled.h1`
 	margin-bottom: 0;
 	display: flex;
 	flex-direction: column;
+	flex-basis: 100%;
 `
-const CharacterOptions = styled.div`
-	font-size: 1.35em;
-	display: flex;
-	justify-content: flex-end;
-	margin-bottom: 0.5em;
+const SheetControls = styled.div`
 
-	> * {
-		flex: 0 1;
-	}
-
-	@media (min-width: ${TABLET_SIZE}) {
-		font-size: 1.25em;
-		margin-bottom: 0;
-	}
 `
-const SheetName = styled.h5`
-	font-size: 1.25rem;
+const SheetName = styled.div`
 	margin-top: 0.5em;
+`
+const SheetDescription = styled.div`
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	font-style: italic;
 `
 
 const CharacterSheet = () => {
@@ -139,7 +133,7 @@ const CharacterSheet = () => {
 						/>
 					) : character.name}
 				</CharacterName>
-				<CharacterOptions>
+				<SheetControls>
 					{isEditing ? (
 						<IconButton
 							icon={SaveIcon}
@@ -156,11 +150,15 @@ const CharacterSheet = () => {
 							onClick={() => setIsEditing(true)}
 						/>
 					)}
-				</CharacterOptions>
+				</SheetControls>
 			</CharacterHeader>
-			<SheetName>{sheet.name}</SheetName>
+			<SheetName>
+				<h4>{sheet.name}</h4>
+			</SheetName>
 
-			<p>{sheet.description}</p>
+			<SheetDescription>
+				<p>{sheet.description}</p>
+			</SheetDescription>
 
 			<Stats {...game.stats} isEditing={isEditing} />
 

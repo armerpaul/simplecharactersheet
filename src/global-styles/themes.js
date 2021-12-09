@@ -49,21 +49,32 @@ const ThemedStyles = styled.div`
   background: ${theme => theme.backgroundColor};
   color: ${theme => theme.fontColor};
 	min-height: 100vh;
+	font-size: 14px;
 
 	p {
 		margin-top: 0;
 	}
 
+	h1 {
+		margin-top: 0.5rem;
+		font-size: 1.5rem;
+	}
+
 	h2 {
+		font-size: 1.25rem;
 		margin-top: 0.25em;
 		margin-bottom: 0.5em;
 	}
 
 	h3 {
+		font-size: 1rem;
+		margin-top: 0.25em;
 		margin-bottom: 0.25em;
 	}
 
 	h4 {
+		font-size: 1rem;
+		margin-top: 0.25em;
 		margin-bottom: 0.25em;
 	}
 

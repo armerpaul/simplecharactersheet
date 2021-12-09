@@ -1,17 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import {
-	GiSun as LightIcon,
-	GiMoonBats as DarkIcon,
-} from "react-icons/gi";
-import {
-	setGlobalTheme,
-	IconButton,
-	TABLET_SIZE,
-	LIGHT_THEME,
-	DARK_THEME,
-} from '../global-styles'
+import ThemePicker from './theme-picker'
+import { TABLET_SIZE } from '../global-styles'
 
 const StyledHeader = styled.header`
 	padding: 0.5em 0.75rem;
@@ -35,29 +26,12 @@ const StyledHeader = styled.header`
 const HomeLink = styled(Link)`
 	text-decoration: none;
 `
-const ThemeToggleList = styled.div`
-	display: flex;
-	flex-direction: row;
-`
-const ThemeToggle = styled(IconButton)`
-	margin-left: 0.5em;
-	padding: 0.2em;
-`
 
 const AppHeader = () => {
 	return (
 		<StyledHeader>
 			<HomeLink to="/">Simple Character Sheet</HomeLink>
-			<ThemeToggleList>
-				<ThemeToggle
-					icon={LightIcon}
-					onClick={() => setGlobalTheme(LIGHT_THEME)}
-				/>
-				<ThemeToggle
-					icon={DarkIcon}
-					onClick={() => setGlobalTheme(DARK_THEME)}
-				/>
-			</ThemeToggleList>
+			<ThemePicker />
 		</StyledHeader>
 	)
 }
