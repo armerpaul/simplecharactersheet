@@ -25,7 +25,7 @@ const SheetBlock = ({
 	...otherArgs
 }) => {
 	// pulled out separately so otherArgs contains all the good stuff
-	const { name, value, isEditing, updateCharacter } = otherArgs
+	const { name, displayName, value, isEditing, updateCharacter } = otherArgs
 	const path = [...parents, name]
 
 	let contents
@@ -50,12 +50,14 @@ const SheetBlock = ({
 		)
 	}
 
+	const blockTitle = displayName || name
+
 	return (
 		<div key={name}>
-			{name && !hideName && (
+			{blockTitle && !hideName && (
 				<ReactMarkdown
 					key="header"
-					children={`${headerForLevel[parents.length]} ${name}`}
+					children={`${headerForLevel[parents.length]} ${blockTitle}`}
 				/>
 			)}
 			{description && (

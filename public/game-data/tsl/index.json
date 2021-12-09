@@ -57,16 +57,18 @@
 			"children": [
 				{
 					"name": "Truths of Heart",
+					"displayName": "*",
 					"description": "When you become **Smitten** with someone, say why, give them a String, and answer this question:",
 					"type": "list",
-					"pick": 1,
+					"pick": "all",
 					"items": "*"
 				},
 				{
 					"name": "Truths of Blade",
+					"displayName": "*",
 					"description": "When you **Figure Out a Person** in physical conflict, you may additionally ask one of these questions, even on a 6-:",
 					"type": "list",
-					"pick": 2,
+					"pick": "all",
 					"items": "*"
 				}
 			]
