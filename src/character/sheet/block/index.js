@@ -50,10 +50,7 @@ const SheetBlock = ({
 		)
 	}
 
-
-	const showBlock = isEditing || contents || type === 'boxes'
-
-	return showBlock ? (
+	return (
 		<div key={name}>
 			{name && !hideName && (
 				<ReactMarkdown
@@ -69,8 +66,7 @@ const SheetBlock = ({
 			)}
 			{contents}
 		</div>
-	) : null
-
+	)
 }
 
 export default SheetBlock
