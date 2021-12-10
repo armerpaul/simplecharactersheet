@@ -59,7 +59,7 @@ const CreateCharacter = () => {
 				{Object.keys(sheets).map(sheetId => {
 					const iconKey = `Gi${sheetIcons ? sheetIcons[sheetId] : 'IdCard'}`
 					const SheetIcon = GameIcons[iconKey]
-					console.log({ iconKey, SheetIcon })
+
 					return (
 						<Card
 							key={sheetId}

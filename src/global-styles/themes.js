@@ -6,20 +6,25 @@ export const LIGHT_THEME = 'Morning Sun'
 export const DIM_THEME = 'Witch Moon'
 export const DARK_THEME = 'Bat Night'
 
+const BASE_STYLES = {
+	linkColor: new Color('#ef3e27'),
+	listBullet: '►',
+	sublistBullet: '▻',
+}
 const stylesByTheme = {
 	[LIGHT_THEME]: {
+		...BASE_STYLES,
 		name: LIGHT_THEME,
 		backgroundColor: new Color('#ede7df'),
 		containerColor: new Color('#f6f3ef'),
 		fontColor: new Color('#2e1f22'),
-		linkColor: new Color('#ef3e27')
 	},
 	[DARK_THEME]: {
+		...BASE_STYLES,
 		name: DARK_THEME,
 		backgroundColor: new Color('#25191b'),
 		containerColor: new Color('#332225'),
 		fontColor: new Color('#f6f3ef'),
-		linkColor: new Color('#ef3e27')
 	}
 }
 
@@ -51,10 +56,36 @@ const ThemedStyles = styled.div`
   background: ${theme => theme.backgroundColor};
   color: ${theme => theme.fontColor};
 	min-height: 100vh;
-	font-size: 14px;
+	font-size: 1rem;
 
 	p {
 		margin-top: 0;
+		margin-bottom: 0.25em;
+	}
+
+	ul {
+		margin-top: 0.75em;
+		padding-left: 2.15em;
+		list-style-type: '${getGlobalTheme().listBullet}';
+
+		li {
+			padding-left: 0.35em;
+			margin-bottom: 0.25em;
+
+			ul {
+				list-style-type: '${getGlobalTheme().sublistBullet}';
+			}
+		}
+	}
+
+	blockquote {
+		margin: 0;
+		margin-top: 0.5em;
+		margin-left: 1.15em;
+
+		+ blockquote {
+			margin-top: 0.2em;
+		}
 	}
 
 	h1 {

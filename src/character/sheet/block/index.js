@@ -1,8 +1,13 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import styled from 'styled-components'
 
 import BoxesBlock from './boxes-block'
 import ListBlock from './list-block'
+
+const StyledBlock = styled.div`
+	padding-right: 1em;
+`
 
 const BlockTypes = {
 	boxes: BoxesBlock,
@@ -53,7 +58,7 @@ const SheetBlock = ({
 	const blockTitle = displayName || name
 
 	return (
-		<div key={name}>
+		<StyledBlock key={name}>
 			{blockTitle && !hideName && (
 				<ReactMarkdown
 					key="header"
@@ -67,7 +72,7 @@ const SheetBlock = ({
 				<ReactMarkdown key="editDescription" children={editDescription} />
 			)}
 			{contents}
-		</div>
+		</StyledBlock>
 	)
 }
 
