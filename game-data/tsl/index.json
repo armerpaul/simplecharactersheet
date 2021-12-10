@@ -37,6 +37,7 @@
 		{
 			"name": "Conditions",
 			"type": "list",
+			"alwaysEditable": true,
 			"items": [
 				"**Angry:** –2 to **Figure Out a Person**. To clear, break something important to you or someone you care about.",
 				"**Frightened:** -2 to **Fight**. To clear, run away and leave something important behind.",
@@ -84,7 +85,7 @@
 					"name": "Default Moves",
 					"optional": true,
 					"hideName": true,
-					"editDescription": "*",
+					"editDescription": "Start with this move:",
 					"type": "list",
 					"pick": "all",
 					"items": "*"
@@ -92,7 +93,7 @@
 				{
 					"name": "Playbook Moves",
 					"hideName": true,
-					"editDescription": "Start with the default move above, and choose two more:",
+					"editDescription": "Then choose two more:",
 					"type": "list",
 					"items": "*"
 				}
