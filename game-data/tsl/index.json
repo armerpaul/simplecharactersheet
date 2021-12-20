@@ -16,15 +16,7 @@
 		]
 	},
 	"sheets": {
-		"beast": "The Beast",
-		"chosen": "The Chosen",
-		"devoted": "The Devoted",
-		"infamous": "The Infamous",
-		"nature": "The Nature Witch",
-		"scoundrel": "The Scoundrel",
-		"seeker": "The Seeker",
-		"spooky": "The Spooky Witch",
-		"trickster": "The Trickster"
+		"beast": "The Beast"
 	},
 	"sheetTemplate": [
 		{
