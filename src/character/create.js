@@ -52,6 +52,10 @@ const CreateCharacter = () => {
 		history.push(`/${gameId}/${character.id}`)
 	}
 
+	if (gameName && !sheets) {
+		createCharacterAndGoToSheet()
+	}
+
 	return sheets ? (
 		<CharacterContainer>
 			<p>Select a {gameName} playbook:</p>

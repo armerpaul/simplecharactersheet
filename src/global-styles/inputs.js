@@ -60,6 +60,25 @@ export const TextInput = styled(BaseInput).attrs({ type: 'text' })`
 	}
 `
 
+export const TextareaInput = styled.textarea`
+	border-left: none;
+	border-top: none;
+	border-right: none;
+	border-bottom-color: transparent;
+	padding: 0.3em 0.5em 0.2em;
+	width: 100%;
+	min-height: 8rem;
+	
+	${inputColorStyles}
+	outline: 0 solid;
+	font-size: inherit;
+	font-family: inherit;
+
+	&:disabled {
+		${inputDisabledStyles}
+	}
+`
+
 const StyledCheckboxInput = styled.div`
 	${inputColorStyles}
 	cursor: pointer;

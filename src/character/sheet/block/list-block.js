@@ -42,7 +42,6 @@ const ListItem = ({
 	isChecked,
 	isEditing,
 	setItemValue,
-	showTextInput,
 	value,
 	showAdditionalInfo,
 	additionalInfoValue,
@@ -70,7 +69,7 @@ const ListItem = ({
 				</ListItemValue>
 				{isEditing && showAdditionalInfo && isChecked && [
 					<TextInput
-						key="additiona-info"
+						key="additional-info"
 						value={typeof additionalInfoValue === 'string' ? additionalInfoValue : ''}
 						onChange={event => setItemValue({ index, newValue: event.target.value })}
 					/>,

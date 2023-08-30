@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import BoxesBlock from './boxes-block'
 import ListBlock from './list-block'
+import TextBlock from './text-block'
 
 const StyledBlock = styled.div`
 	padding-right: 1em;
@@ -12,6 +13,7 @@ const StyledBlock = styled.div`
 const BlockTypes = {
 	boxes: BoxesBlock,
 	list: ListBlock,
+	text: TextBlock,
 }
 
 const headerForLevel = {

@@ -79,7 +79,7 @@ const CharacterSheet = () => {
 					}
 					setIsEditing(!data.character.name)
 					setCharacter({
-						name: `Name your ${data.sheet.name}`,
+						name: `Name your ${data.sheet.name ?? 'character'}`,
 						...data.character
 					})
 					setGame(data.game)
@@ -151,7 +151,7 @@ const CharacterSheet = () => {
 				</SheetControls>
 			</CharacterHeader>
 			<SheetName>
-				<h4>{sheet.name}</h4>
+				<h4>{sheet.name}{sheet.name ? ', ' : ''}<em>{game.name}</em></h4>
 			</SheetName>
 
 			<SheetDescription>

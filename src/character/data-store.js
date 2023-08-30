@@ -4,7 +4,7 @@ import * as R from 'ramda'
 const lsKey = characterId => `scs-${characterId}`
 const generateCharacterId = () => `${(new Date()).getTime()}`
 
-export const createCharacter = ({ gameId, sheetId, name }) => {
+export const createCharacter = ({ gameId, sheetId }) => {
 	const id = generateCharacterId()
 	const character = {
 		id,
@@ -114,23 +114,33 @@ const hydrateTemplate = ({ templateBlock, sheetBlocks, sheetTemplateBlocks }) =>
 
 export const getCharacterAndGameData = async ({ gameId, characterId }) => {
 	try {
-		const character = getCharacterData({ characterId })
-		const game = await getGameData({ gameId })
-		const sheet = await getSheetData({ gameId, sheetId: character.sheetId })
-		const blocks = hydrateTemplate({
-			templateBlock: R.prop('sheetTemplate', game),
-			sheetBlocks: R.prop('blocks', sheet),
-			sheetTemplateBlocks: R.propOr({}, 'templateBlocks', sheet),
-		})
+		const data = {
+			character: getCharacterData({ characterId }),
+			game: await getGameData({ gameId }),
+		}
+		const getFromGame = prop => R.path(['game', prop], data)
 
-		return {
-			character,
-			game,
-			sheet: {
+		if (data.character.sheetId) {
+			const sheet = await getSheetData({ gameId, sheetId: data.character.sheetId })
+			const blocks = hydrateTemplate({
+				templateBlock: getFromGame('sheetTemplate'),
+				sheetBlocks: R.prop('blocks', sheet),
+				sheetTemplateBlocks: R.propOr({}, 'templateBlocks', sheet),
+			})
+
+			data.sheet = {
 				...sheet,
 				blocks,
-			},
+			}
+		} else {
+			data.sheet = {
+				blocks: getFromGame('sheetTemplate'),
+				description: getFromGame('description'),
+			}
 		}
+		console.log('data.sheet', data.sheet)
+
+		return data
 	} catch (error) {
 		console.error(error)
 		return { error: error.message }

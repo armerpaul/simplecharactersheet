@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Card, TABLET_SIZE } from '../global-styles'
 import {
 	GiRaiseZombie as MotwIcon,
-	GiDaggerRose as TslIcon,
+	GiSpaceship as LafIcon,
 	GiAnvilImpact as UnderConstructionIcon,
 } from 'react-icons/gi'
 
@@ -46,7 +46,7 @@ const AppHome = () => {
 
 			<GameList>
 				<CreateCharacter gameId="motw" gameName="Monster of the Week" icon={MotwIcon} />
-				<CreateCharacter gameId="tsl" gameName="Thirsty Sword Lesbians" icon={TslIcon} />
+				<CreateCharacter gameId="laf" gameName="Lazers & Feelings" icon={LafIcon} />
 				<Card
 					isDisabled={true}
 					key="UnderConstruction"
