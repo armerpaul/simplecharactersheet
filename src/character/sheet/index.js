@@ -51,6 +51,7 @@ const CharacterName = styled.h1`
 	flex-basis: 100%;
 `
 const SheetControls = styled.div`
+	font-size: 1.25rem;
 `
 const SheetName = styled.div`
 	margin-top: 0.5em;

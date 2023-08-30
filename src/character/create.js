@@ -35,15 +35,18 @@ const CreateCharacter = () => {
 	const [gameLink, setGameLink] = React.useState()
 	const [sheets, setSheets] = React.useState()
 	const [sheetIcons, setSheetIcons] = React.useState()
+	const [isLoading, setIsLoading] = React.useState(true)
 
 	const history = useHistory()
 	const { gameId } = useParams()
 	React.useEffect(() => {
+		setIsLoading(true)
 		getGameData({ gameId }).then(gameData => {
-			setGameName(gameData.name)
-			setGameLink(gameData.link)
 			setSheets(gameData.sheets)
 			setSheetIcons(gameData.sheetIcons)
+			setGameLink(gameData.link)
+			setGameName(gameData.name)
+			setIsLoading(false)
 		})
 	}, [gameId])
 
@@ -52,11 +55,18 @@ const CreateCharacter = () => {
 		history.push(`/${gameId}/${character.id}`)
 	}
 
-	if (gameName && !sheets) {
-		createCharacterAndGoToSheet()
+	if (isLoading) {
+		return (
+			<LoadingContainer>Loading...</LoadingContainer>
+		)
 	}
 
-	return sheets ? (
+	if (!sheets) {
+		createCharacterAndGoToSheet()
+		return null
+	}
+
+	return (
 		<CharacterContainer>
 			<p>Select a {gameName} playbook:</p>
 			<SheetList>
@@ -83,8 +93,6 @@ const CreateCharacter = () => {
 				</a>
 			</p>
 		</CharacterContainer>
-	) : (
-		<LoadingContainer>Loading...</LoadingContainer>
 	)
 }
 
