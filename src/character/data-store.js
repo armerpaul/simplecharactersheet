@@ -138,7 +138,6 @@ export const getCharacterAndGameData = async ({ gameId, characterId }) => {
 				description: getFromGame('description'),
 			}
 		}
-		console.log('data.sheet', data.sheet)
 
 		return data
 	} catch (error) {

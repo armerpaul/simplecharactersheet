@@ -13,7 +13,14 @@
 			"Sharp",
 			"Tough",
 			"Weird"
-		]
+		],
+		"clickStatToRoll": true,
+		"rollOptions": {
+            "type": "sum-mod",
+			"diceCount": 2,
+            "successExp": ">=7",
+            "criticalExp": ">=10"
+        }
 	},
 	"sheets": {
 		"chosen": "The Chosen",

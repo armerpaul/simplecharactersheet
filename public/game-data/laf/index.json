@@ -8,7 +8,50 @@
 			"min": 2
 		},
 		"defaultValue": 3,
-		"names": [ "" ]
+		"names": [ "" ],
+        "rollOptions": {
+            "type": "pool-count",
+            "successExp": "<=#",
+            "criticalExp": "=#"
+        },
+        "rollButtons": [
+            {
+                "name": "LASERS 1d",
+                "diceCount": 1,
+                "alternates": [
+                    {
+                        "name": "2d",
+                        "diceCount": 2
+                    },
+                    {
+                        "name": "2d",
+                        "diceCount": 3
+                    },
+                    {
+                        "name": "2d",
+                        "diceCount": 4
+                    }
+                ]
+            },
+            {
+                "name": "FEELINGS 1d",
+                "diceCount": 1,
+                "alternates": [
+                    {
+                        "name": "2d",
+                        "diceCount": 2
+                    },
+                    {
+                        "name": "2d",
+                        "diceCount": 3
+                    },
+                    {
+                        "name": "2d",
+                        "diceCount": 4
+                    }
+                ]
+            }
+        ]
 	},
 	"sheetTemplate": [
         {
