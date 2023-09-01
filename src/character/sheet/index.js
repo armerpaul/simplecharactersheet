@@ -3,6 +3,7 @@ import * as R from 'ramda'
 import styled from 'styled-components'
 import SheetBlock from './block'
 import Stats from './stats'
+import { MAX_ROLLS, RollsBox } from './rolls'
 import {
 	getCharacterAndGameData,
 	saveCharacter,
@@ -63,6 +64,11 @@ const SheetDescription = styled.div`
 
 const CharacterSheet = () => {
 	let { gameId, characterId } = useParams()
+
+	const [rolls, setRolls] = React.useState([])
+	const addRoll = React.useCallback(roll => {
+        setRolls([roll, ...rolls].slice(0, MAX_ROLLS))
+    }, [rolls, setRolls])
 
 	const [isEditing, setIsEditing] = React.useState(false)
 	const [error, setError] = React.useState()
@@ -159,7 +165,7 @@ const CharacterSheet = () => {
 				<ReactMarkdown>{sheet.description}</ReactMarkdown>
 			</SheetDescription>
 
-			<Stats {...game.stats} isEditing={isEditing} />
+			<Stats {...game.stats} isEditing={isEditing} addRoll={addRoll} />
 
 			{sheet.blocks.map((block, index) => (
 				<SheetBlock
@@ -170,6 +176,7 @@ const CharacterSheet = () => {
 					updateCharacter={updateCharacter}
 				/>
 			))}
+			<RollsBox rolls={rolls} />
 		</CharacterContainer>
 	)
 }

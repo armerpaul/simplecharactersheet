@@ -4,13 +4,15 @@ import { getGlobalTheme } from './themes'
 export const TABLET_SIZE = '900px'
 export const DESKTOP_SIZE = '1200px'
 
-export const AppContainer = styled.div`
-	max-width: 50rem;
-	margin-left: auto;
-	margin-right: auto;
+export const BaseContainer = styled.div`
 	padding: 0.6rem;
 	background: ${getGlobalTheme().containerColor};
 	border: 1px solid ${getGlobalTheme().backgroundColor.darken(0.1)};
+`
+export const AppContainer = styled(BaseContainer)`
+	max-width: 50rem;
+	margin-left: auto;
+	margin-right: auto;
 
 	@media (min-width: ${TABLET_SIZE}) {
 		margin-top: 6vh;

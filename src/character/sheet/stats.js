@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+
+import { ROLL_STATUS } from './rolls'
 import { getGlobalTheme } from '../../global-styles'
 
 const StatsContainer = styled.div`
@@ -68,7 +70,8 @@ const StatButton = styled.button`
 		}
 	}
 `
-const RollButtonsContainer = styled.div``
+const RollButtonsContainer = styled.div`
+`
 
 const LESS_THAN = '<'
 const LESS_THAN_OR_EQ = '<='
@@ -82,15 +85,42 @@ const SUM_MODIFIER = 'sum-mod'
 const roll1d6 = () => Math.ceil(Math.random() * 6)
 const rollXd6 = numDice => Array(numDice).fill(0).map(roll1d6)
 
-const createRoller = ({ type, stat, diceCount }) => {
+const createRoller = ({ type, stat, diceCount, addRoll }) => {
 	if (type === POOL_COUNT) {
-		return () => rollXd6(diceCount)
+		return () => {
+			const dice = rollXd6(diceCount)
+			addRoll({ 
+				resultValue: dice.length, // TODO
+				resultStatus: ROLL_STATUS.CRIT, // TODO
+				dice,
+				note: type,
+			})
+		}
 	}
 	if (type === SUM_MODIFIER) {
-		return () => (rollXd6(diceCount).reduce((sum, roll) => sum + roll, 0) + stat)
+		return () => {
+			const dice = rollXd6(diceCount)
+			const result = dice.reduce((sum, roll) => sum + roll, 0) + stat
+			addRoll({
+				resultValue: result,
+				resultStatus: ROLL_STATUS.CRIT, // TODO
+				dice,
+				modifier: stat,
+				note: type,
+			})
+		}
 	}
 	if (type === POOL_COLLAPSE) {
-		return () => rollXd6(stat)
+		return () => {
+			const dice = rollXd6(stat)
+			const result = dice.reduce((max, die) => Math.max(max, die), 0)
+			addRoll({ 
+				resultValue: result,
+				resultStatus: ROLL_STATUS.CRIT, // TODO
+				dice,
+				note: type,
+			})
+		}
 	}
 }
 
@@ -104,6 +134,7 @@ const Stats = ({
 	range, 
 	defaultValue, 
 	isEditing, 
+	addRoll,
 	rollOptions: {
 		type: rollType,
 		diceCount,
@@ -128,12 +159,12 @@ const Stats = ({
 		if (clickStatToRoll) {
 			setStatRollers(
 				names.reduce((rollers, stat) => {
-					console.log(stat)
 					if (stats[stat] !== undefined) { // stats can be 0
 						rollers[stat] = createRoller({
 							type: rollType,
 							stat: stats[stat],
 							diceCount,
+							addRoll,
 						})	
 					}
 					return rollers
@@ -144,11 +175,13 @@ const Stats = ({
 			setSpecialRollers(
 				rollButtons.map(({ name, alternates, ...rollConfig }) => {
 					const roller = createRoller({ 
+						addRoll,
 						type: rollType,
 						...rollConfig,
 					})
 					if (alternates) {
 						roller.alternates = alternates.map(alternate => createRoller({
+							addRoll,
 							type: rollType,
 							...alternate,
 						}))
@@ -157,7 +190,7 @@ const Stats = ({
 				})
 			)
 		}
-	}, [stats])
+	}, [stats, addRoll, clickStatToRoll, rollButtons, diceCount, names, rollType])
 
 	return (
 		<StatsContainer>
@@ -166,13 +199,8 @@ const Stats = ({
 					<StatName>{stat}</StatName>
 					<StatCircle 
 						isLarge={!stat}
-						onClick={!isEditing && clickStatToRoll && (
-							() => {
-								console.log(`Rolling ${stat}`)
-								console.log(`--> result: ${statRollers[stat]()}`)
-							}
-						)}
-						isRollable={!isEditing} 
+						onClick={!isEditing && clickStatToRoll && statRollers && statRollers[stat]}
+						isRollable={!isEditing && clickStatToRoll} 
 					>
 						{isEditing && (
 							<StatButton
