@@ -79,7 +79,7 @@ const POOL_COUNT = 'count'
 const POOL_COLLAPSE = 'collapse'
 const SUM_MODIFIER = 'sum-mod'
 
-const roll1d6 = () => Math.floor(Math.random() * 6)
+const roll1d6 = () => Math.ceil(Math.random() * 6)
 const rollXd6 = numDice => Array(numDice).fill(0).map(roll1d6)
 
 const createRoller = ({ type, stat, diceCount }) => {
