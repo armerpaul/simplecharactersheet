@@ -139,9 +139,10 @@ const Stats = ({
 		type: rollType,
 		diceCount,
 	}, 
-	rollButtons,
+	// rollButtons,
 	clickStatToRoll, 
 }) => {
+	const rollButtons = false
 	const [stats, setStats] = React.useState(() => createDefaultStats({ names, defaultValue }))
 	const [statRollers, setStatRollers] = React.useState()
 	const [specialRollers, setSpecialRollers] = React.useState()
