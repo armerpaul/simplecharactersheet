@@ -9,9 +9,9 @@ import { NotFound } from '../pages/_404.jsx';
 export const Routes = () => {
     return (
         <Router>
-            <Route path="/characters" name="characters" component={CharacterList} />
-            <Route path="/game/:gameId/character/:characterId" component={CharacterSheet} />
-            <Route path="/game/:gameId/" component={NewCharacter} />
+            <Route path="/characters" component={CharacterList} />
+            <Route path="/games/:gameId/characters/:characterId" component={CharacterSheet} />
+            <Route path="/games/:gameId/" component={NewCharacter} />
             <Route path="/" component={Home} />
             <Route default component={NotFound} />
         </Router>

@@ -53,8 +53,8 @@ export const getGlobalTheme = () => {
 }
 
 const ThemedStyles = styled.div`
-  background: ${theme => theme.backgroundColor.string()};
-  color: ${theme => theme.fontColor.string()};
+	background: ${theme => theme.backgroundColor.string()};
+	color: ${theme => theme.fontColor.string()};
 	min-height: 100vh;
 	font-size: 1rem;
 

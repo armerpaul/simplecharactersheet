@@ -7,7 +7,6 @@ import {
 } from 'react-icons/gi'
 
 import { Card, TABLET_SIZE } from '../../global-styles'
-import css from './style.css'
 
 const Home = () => {
 	return (
@@ -41,7 +40,7 @@ const CreateCharacter = ({
 	icon: IconType,
 	inProgress?: boolean
 }) => (
-	<a href={`/${gameId}/new`}>
+	<a href={`/games/${gameId}`}>
 		<Card
 			key={gameId}
 			label={gameName}
