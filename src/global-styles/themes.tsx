@@ -1,6 +1,6 @@
-import React from 'react'
 import styled from 'styled-components'
 import Color from 'color'
+import { useState, useEffect } from 'preact/hooks'
 
 export const LIGHT_THEME = 'Morning Sun'
 export const DIM_THEME = 'Witch Moon'
@@ -53,8 +53,8 @@ export const getGlobalTheme = () => {
 }
 
 const ThemedStyles = styled.div`
-  background: ${theme => theme.backgroundColor};
-  color: ${theme => theme.fontColor};
+  background: ${theme => theme.backgroundColor.string()};
+  color: ${theme => theme.fontColor.string()};
 	min-height: 100vh;
 	font-size: 1rem;
 
@@ -112,25 +112,25 @@ const ThemedStyles = styled.div`
 	}
 
 	a {
-		color: ${theme => theme.linkColor};
+		color: ${theme => theme.linkColor.string()};
 		transition-property: color;
 		transition-duration: 0.3s;
 		font-weight: bold;
 		text-decoration: none;
 
 		&:hover, &:focus {
-			color: ${getGlobalTheme().linkColor.mix(getGlobalTheme().fontColor)};
+			color: ${getGlobalTheme().linkColor.mix(getGlobalTheme().fontColor).string()};
 		}
 
 		&:active {
-			color: ${getGlobalTheme().fontColor};
+			color: ${getGlobalTheme().fontColor.string()};
 		}
 	}
 `
 
 export const GlobalStyles = ({ children }) => {
-	const [theme, setTheme] = React.useState(LIGHT_THEME)
-	React.useEffect(() => {
+	const [theme, setTheme] = useState(stylesByTheme[LIGHT_THEME])
+	useEffect(() => {
 		setTheme(getGlobalTheme())
 	}, [])
 	return (

@@ -1,20 +1,13 @@
 # Simple Character Sheet
 
-Live at: [simplecharactersheet.com](http://simplecharactersheet.com)
+> https://simplecharactersheet.com
 
-## Available Scripts
+Now with `Vite` and `Preact`!
 
-In the project directory, you can run:
+## Getting Started
 
-### `yarn start`
+-   `npm run dev` - Starts a dev server at http://localhost:5173/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-   `npm run build` - Builds for production, emitting to `dist/`
 
-### `yarn deploy`
-
-Builds the app for production to the `build` folder, then deploys it to github pages.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.
+-   `npm run preview` - Starts a server at http://localhost:4173/ to test production build locally

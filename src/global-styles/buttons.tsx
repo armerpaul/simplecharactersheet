@@ -1,10 +1,9 @@
-import React from 'react'
 import styled from 'styled-components'
 import { getGlobalTheme } from './themes'
 
 const BaseButton = styled.button`
-	background: ${getGlobalTheme().fontColor};
-	color: ${getGlobalTheme().containerColor};
+	background: ${getGlobalTheme().fontColor.string()};
+	color: ${getGlobalTheme().containerColor.string()};
 	width: 100%;
 	text-align: center;
 	padding: 0.5em;
@@ -27,16 +26,16 @@ const BaseButton = styled.button`
 
 	&:not(:disabled) {
 		&:hover, &:focus {
-			background: ${getGlobalTheme().linkColor};
+			background: ${getGlobalTheme().linkColor.string()};
 		}
 
 		&:active {
-			color: ${getGlobalTheme().fontColor};
+			color: ${getGlobalTheme().fontColor.string()};
 		}
 	}
 
 	&:disabled {
-		background: ${getGlobalTheme().fontColor};
+		background: ${getGlobalTheme().fontColor.string()};
 		opacity: 0.6;
 		cursor: not-allowed;
 	}
@@ -58,7 +57,7 @@ const StyledIconButton = styled(BaseButton)`
 	font-size: 1.15em;
 
 	svg{
-		fill: ${getGlobalTheme().containerColor};
+		fill: ${getGlobalTheme().containerColor.string()};
 		transition-property: fill;
 		transition-duration: 0.25s;
 	}
@@ -66,7 +65,7 @@ const StyledIconButton = styled(BaseButton)`
 	&:not(:disabled) {
 		&:focus, &:active {
 			svg {
-				fill: ${getGlobalTheme().fontColor};
+				fill: ${getGlobalTheme().fontColor.string()};
 			}
 		}
 	}
